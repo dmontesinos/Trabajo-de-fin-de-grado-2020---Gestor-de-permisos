@@ -104,6 +104,8 @@
   <!-- Tablas personalizadas -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Funciones personalizadas -->
   <script>mostrarContenidoPricipal()</script>
