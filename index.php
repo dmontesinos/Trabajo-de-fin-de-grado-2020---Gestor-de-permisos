@@ -6,11 +6,12 @@
 $accion = $_GET['accion'] ?? null;
 
 switch ($accion) {
-    case 'principal':
+    case 'tablero':
         require __DIR__.'/controllers/prueba.php';
-        echo "He entrado";
         break;
-
+    case 'centros':
+        require __DIR__.'/controllers/centros.php';
+        break;
     default:
         require __DIR__ .'/controllers/portada.php';
         break;

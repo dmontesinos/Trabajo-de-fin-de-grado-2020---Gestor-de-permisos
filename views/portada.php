@@ -20,6 +20,9 @@
 
     <!-- Funciones personalizadas -->
     <script src="js/funciones.js"></script>
+
+
+
 </head>
 
 <body id="page-top">
@@ -95,10 +98,17 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Tablas personalizadas -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
   <!-- Funciones personalizadas -->
   <script>mostrarContenidoPricipal()</script>
+  <script>mostrarMenuCentros()</script>
+
 
 </body>
 
