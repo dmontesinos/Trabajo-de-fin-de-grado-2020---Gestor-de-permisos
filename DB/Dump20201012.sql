@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `gestor_de_permisos` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `gestor_de_permisos`;
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: gestor_de_permisos
@@ -82,7 +84,6 @@ CREATE TABLE `asignaturas` (
 
 LOCK TABLES `asignaturas` WRITE;
 /*!40000 ALTER TABLE `asignaturas` DISABLE KEYS */;
-INSERT INTO `asignaturas` VALUES (102740,'Sistemes Distribuïts'),(102741,'Gest.Adm.Bases de Dades'),(102742,'Tecnologies Desenv. Internet i Web'),(102743,'Enginyeria del Software'),(102744,'Bases de Dades'),(102745,'Legislació'),(102746,'Xarxes'),(102747,'Sistemes Operatius'),(102748,'Treball de Final de Grau'),(102749,'Tecnologies Avançades d\'Internet'),(102750,'Sistemes i Tecnologies Web'),(102751,'Infraest.Tecnologia i Xarxes'),(102752,'Sistemes d\'Informació'),(102753,'Visualització Gràfica Interactiva'),(102754,'Sistemes Multimèdia'),(102757,'Garant.Inform.Seguretat'),(102758,'Test i Qualitat del Software'),(102759,'Disseny de Software'),(102760,'Gestió de Projectes'),(102761,'Anglès Professional II'),(102762,'Anglès Professional I'),(102763,'Requisits del Software'),(102764,'Metodologia de la Programació'),(102765,'Fonaments Dels Computadors'),(102767,'Laboratori de Programació'),(102768,'Intel·ligència Artificial'),(102769,'Informació i Seguretat'),(102770,'Tendències Actuals'),(102771,'Electricitat i Electrònica'),(102772,'Matemàtica Discreta'),(102773,'Fonam.Tecnol.D.Informació'),(102774,'Estructura de Computadors'),(102775,'Arquitectura de Computadors'),(102776,'Gestió i Administració de Xarxes'),(102777,'Computació d\'Altes Prestacions'),(102778,'Arquitectures Avançades'),(102781,'Mod.Qualit.Gestió de TIC'),(102782,'Compiladors'),(102783,'Anàlisi i Disseny d\'Algorismes'),(102784,'Visió per Computador'),(102785,'Robòtica'),(102786,'Coneixement'),(102787,'Aprenentatge Computacional'),(102788,'Laboratori Integrat de Software'),(102789,'Gesti.Desenv.Software'),(102790,'Arquitect.Tecnolog.Software'),(102791,'Sistemes Encastats'),(102792,'Prototipatge de Sistemes Encastats'),(102793,'Microprocessadors i Perifèrics'),(102794,'Integració Hardware/software'),(103801,'Àlgebra'),(103802,'Càlcul'),(103803,'Estadística'),(103804,'Ètica per a l\'Enginyeria'),(103805,'Fonaments d\'Enginyeria'),(103806,'Fonaments d\'Informàtica'),(103807,'Organització i Gestió d\'Empreses'),(103983,'Pràctiques Externes'),(105072,'Tecnologia Blockchain i Criptomoned'),(105073,'Tecnologies Compressió de la Inform'),(105074,'Aplicacions de la Teoria de Codis'),(105075,'Internet de les Coses');
 /*!40000 ALTER TABLE `asignaturas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,12 +97,12 @@ DROP TABLE IF EXISTS `asignaturas_has_estudios`;
 CREATE TABLE `asignaturas_has_estudios` (
   `Asignaturas_idAsignaturas` int NOT NULL,
   `Estudios_idEstudios` int NOT NULL,
-  `Grados_Centros_idCentros` int NOT NULL,
-  PRIMARY KEY (`Asignaturas_idAsignaturas`,`Estudios_idEstudios`,`Grados_Centros_idCentros`),
-  KEY `fk_Asignaturas_has_Grados_Grados1_idx` (`Estudios_idEstudios`,`Grados_Centros_idCentros`),
+  `Estudio_Centros_idCentros` int NOT NULL,
+  PRIMARY KEY (`Asignaturas_idAsignaturas`,`Estudios_idEstudios`,`Estudio_Centros_idCentros`),
+  KEY `fk_Asignaturas_has_Grados_Grados1_idx` (`Estudios_idEstudios`,`Estudio_Centros_idCentros`),
   KEY `fk_Asignaturas_has_Grados_Asignaturas1_idx` (`Asignaturas_idAsignaturas`),
   CONSTRAINT `fk_Asignaturas_has_Grados_Asignaturas1` FOREIGN KEY (`Asignaturas_idAsignaturas`) REFERENCES `asignaturas` (`idAsignaturas`),
-  CONSTRAINT `fk_Asignaturas_has_Grados_Grados1` FOREIGN KEY (`Estudios_idEstudios`, `Grados_Centros_idCentros`) REFERENCES `estudios` (`idGrado`, `Centros_idCentros`)
+  CONSTRAINT `fk_Asignaturas_has_Grados_Grados1` FOREIGN KEY (`Estudios_idEstudios`, `Estudio_Centros_idCentros`) REFERENCES `estudios` (`idEstudio`, `Centros_idCentros`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -189,7 +190,7 @@ CREATE TABLE `centros` (
 
 LOCK TABLES `centros` WRITE;
 /*!40000 ALTER TABLE `centros` DISABLE KEYS */;
-INSERT INTO `centros` VALUES (0,'Escola d\'Enginyeria','eng'),(1,'Facultat d\'Economia i Empresa','eco'),(2,'Facultat de Biociències','bio'),(3,'Facultat de Ciències','cie'),(4,'Facultat de Ciències Polítiques i de Sociologia','ciepol'),(5,'Facultat de Ciències de l\'Educació','cieedu'),(6,'Facultat de Ciències de la Comunicació','ciecomu'),(7,'Facultat de Dret','dret'),(8,'Facultat de Filosofia i Lletres','filo'),(9,'Facultat de Medicina','med'),(10,'Facultat de Psicologia','psic'),(11,'Facultat de Traducció i d\'Interpretació','trad'),(12,'Facultat de Veterinària','vet');
+INSERT INTO `centros` VALUES (101,'Facultat de Filosofia i Lletres','FFiL'),(102,'Facultat de Medicina','FM'),(103,'Facultat de Cičncies','FC'),(105,'Facultat de Cičncies de la Comunicació','FCC'),(106,'Facultat de Dret','FD'),(107,'Facultat de Veterinŕria','FV'),(108,'Facultat de Cičncies Polítiques i de Sociologia','FCPS'),(109,'Facultat de Psicologia','FP'),(110,'Facultat de Traducció i d\'Interpretació','FTI'),(111,'Facultat de Cičncies de l\'Educació','FCE'),(113,'Facultat de Biocičncies','FB'),(114,'Facultat d\'Economia i Empresa','FEE'),(115,'Escola d\'Enginyeria','EE');
 /*!40000 ALTER TABLE `centros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +204,7 @@ DROP TABLE IF EXISTS `departamentos`;
 CREATE TABLE `departamentos` (
   `idDepartamentos` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `descripcion` varchar(300) DEFAULT NULL,
+  `acronimo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idDepartamentos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -214,6 +215,7 @@ CREATE TABLE `departamentos` (
 
 LOCK TABLES `departamentos` WRITE;
 /*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
+INSERT INTO `departamentos` VALUES (402,'Departament de Matemŕtiques','DM'),(403,'Departament de Química','DQ'),(404,'Departament de Física','DF'),(429,'Departament de Filologia Anglesa i de Germanística','DFAG'),(431,'Departament de Geografia','DG'),(433,'Departament de Cičncia Política i de Dret Públic','DCPiDP'),(438,'Departament de Dret Privat','DDP'),(461,'Departament de Telecomunicació i d\'Enginyeria de Sistemes','DTES'),(463,'Departament d\'Enginyeria Electrňnica','DEE'),(469,'Departament d\'Arquitectura de Computadors i Sistemes Operatius','DACSO'),(470,'Departament de Microelectrňnica i de Sistemes Electrňnics','DMSE'),(471,'Departament de Cičncies de la Computació','DCC'),(472,'Departament d\'Enginyeria de la Informació i de les Comunicacions','DEIC'),(485,'Departament d\'Empresa','DE'),(2634,'Departament d\'Enginyeria Química, Biològica i Ambiental','DEQBA');
 /*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,13 +254,13 @@ DROP TABLE IF EXISTS `estudios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `estudios` (
-  `idGrado` int NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `idEstudio` int NOT NULL,
+  `nombre` varchar(300) NOT NULL,
   `acronimo` varchar(300) DEFAULT NULL,
   `Centros_idCentros` int NOT NULL,
   `activo` tinyint DEFAULT NULL,
-  `tipo` enum('Grado','Master') DEFAULT NULL,
-  PRIMARY KEY (`idGrado`,`Centros_idCentros`),
+  `tipo` enum('Grau','Màster') DEFAULT NULL,
+  PRIMARY KEY (`idEstudio`,`Centros_idCentros`),
   KEY `fk_Grados_Facultades1_idx` (`Centros_idCentros`),
   CONSTRAINT `fk_Grados_Facultades1` FOREIGN KEY (`Centros_idCentros`) REFERENCES `centros` (`idCentro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -270,7 +272,7 @@ CREATE TABLE `estudios` (
 
 LOCK TABLES `estudios` WRITE;
 /*!40000 ALTER TABLE `estudios` DISABLE KEYS */;
-INSERT INTO `estudios` VALUES (0,'Enginyeria Informàtica','Eng. Inf.',0,1,'Grado'),(1,'Enginyeria Telecomunicacions','Eng. Teleco.',0,1,'Grado');
+INSERT INTO `estudios` VALUES (951,'Grau en Enginyeria Química','GEQ',115,1,'Grau'),(956,'Grau en Enginyeria de Sistemes de Telecomunicació','GEST',115,1,'Grau'),(957,'Grau en Enginyeria Electrňnica de Telecomunicació','GEET',115,1,'Grau'),(958,'Grau en Enginyeria Informŕtica','GEI',115,1,'Grau'),(1170,'Màster en Enginyeria de Telecomunicació','MET',115,1,'Màster'),(1206,'Grau en Enginyeria Informŕtica (Menció en Enginyeria de Computadors) i Grau en Enginyeria Electrňnica de Telecomunicació','GEI+GEET',115,1,'Grau'),(1207,'Grau en Enginyeria Informŕtica (Menció en Tecnologies de la Informació) i Grau en Enginyeria de Sistemes de Telecomunicació','GEI+GEST',115,1,'Grau'),(1365,'Grau en Enginyeria Electrňnica de Telecomunicació i Grau en Enginyeria de Sistemes de Telecomunicació','GEET+GEST',115,1,'Grau'),(1394,'Grau en Enginyeria de Dades','GED',115,1,'Grau'),(1395,'Grau en Gestió de Ciutats Intel·ligents i Sostenibles','GGCIS',115,1,'Grau');
 /*!40000 ALTER TABLE `estudios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,11 +363,11 @@ CREATE TABLE `permisos` (
   `idPermisos` int NOT NULL,
   `nivel` enum('ninguno','basico','total') DEFAULT 'ninguno',
   `Objeto_idObjeto` int NOT NULL,
-  `Cargos_idCargos` int NOT NULL,
-  PRIMARY KEY (`idPermisos`,`Objeto_idObjeto`,`Cargos_idCargos`),
+  `Ambitos_idAmbitos` int NOT NULL,
+  PRIMARY KEY (`idPermisos`,`Objeto_idObjeto`,`Ambitos_idAmbitos`),
   KEY `fk_Permisos_Objeto1_idx` (`Objeto_idObjeto`),
-  KEY `fk_Permisos_Cargos1_idx` (`Cargos_idCargos`),
-  CONSTRAINT `fk_Permisos_Cargos1` FOREIGN KEY (`Cargos_idCargos`) REFERENCES `cargos` (`idCargos`),
+  KEY `fk_Permisos_Ambitos1_idx` (`Ambitos_idAmbitos`),
+  CONSTRAINT `fk_Permisos_Ambitos1` FOREIGN KEY (`Ambitos_idAmbitos`) REFERENCES `ambitos` (`idAmbitos`),
   CONSTRAINT `fk_Permisos_Objeto1` FOREIGN KEY (`Objeto_idObjeto`) REFERENCES `objeto` (`idObjeto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -441,4 +443,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-04 17:42:27
+-- Dump completed on 2020-10-12  2:03:49
