@@ -1,32 +1,37 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Llistat de centres</h1>
+  <h1 class="h3 mb-0 text-gray-800">Llistat d'assignatures</h1>
   <!--a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a-->
 
   <a href="#" class="btn btn-success btn-icon-split" style="float: right">
     <span class="icon text-white-50">
       <i class="fa fa-plus" aria-hidden="true"></i>
     </span>
-    <span class="text">Nou centre</span>
+    <span class="text">Nova assignatura</span>
   </a>
 </div>
 
-<div class="table-responsive" style="width: 100%; margin: 0px auto">
-	<table class="table table-bordered" id="dataTableCentros" width="100%" cellspacing="0">
+
+
+<div class="table-responsive" style="width: 80%; margin: 0px auto">
+	<table class="table table-bordered" id="dataTableAsignaturas" width="100%" cellspacing="0">
   		<thead>
             <tr>
               <th>ID</th>
               <th>Nom</th>
-              <th>Acrònim</th>
               <th style="width:10%">Opcions</th>
 
             </tr>
       	</thead>
       	<tbody>
-      		<?php foreach ($lista as $centro): ?>
+      		<?php foreach ($lista as $asignatura): ?>
 	            <tr>
-  		          <td><?php echo $centro['idCentro'];?></td>
-  		          <td><?php echo $centro['nombre'];?></td>
-  		          <td><?php echo $centro['acronimo'];?></td>
+  		          <td><?php echo $asignatura['idAsignaturas'];?></td>
+  		          <td><?php echo $asignatura['nombre'];?></td>
+                <!--td>
+                  <a href="#" class="btn btn-danger btn-circle">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </td-->
                 <td>
                   <div class="dropdown mb-0">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,8 +46,8 @@
                   </div>
                 </td>
 	            </tr>
-			<?php endforeach; ?>
+		      <?php endforeach; ?>
   		</tbody>
 	</table>
 </div>
-<script src="js/tablas/tablaCentros.js"></script>
+<script src="js/tablas/tablaAsignaturas.js"></script>

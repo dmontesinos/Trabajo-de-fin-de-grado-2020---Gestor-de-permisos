@@ -110,6 +110,8 @@
   <!-- Funciones personalizadas -->
   <script>mostrarContenidoPricipal()</script>
   <script>mostrarMenuCentros()</script>
+  <script>mostrarMenuAsignaturas()</script>
+  <script>mostrarMenuEstudios()</script>
 
 
 </body>

@@ -12,6 +12,12 @@ switch ($accion) {
     case 'centros':
         require __DIR__.'/controllers/centros.php';
         break;
+    case 'estudios':
+        require __DIR__.'/controllers/estudios.php';
+        break;
+    case 'asignaturas':
+        require __DIR__.'/controllers/asignaturas.php';
+        break;
     default:
         require __DIR__ .'/controllers/portada.php';
         break;
