@@ -11,7 +11,7 @@
 </div>
 
 <div class="table-responsive" style="width: 100%; margin: 0px auto">
-	<table class="table table-bordered" id="dataTableCentros" width="100%" cellspacing="0">
+	<table class="table table-bordered table-hover table-compact" id="dataTableCentros" width="100%" cellspacing="0">
   		<thead>
             <tr>
               <th>ID</th>
@@ -28,7 +28,7 @@
   		          <td><?php echo $centro['nombre'];?></td>
   		          <td><?php echo $centro['acronimo'];?></td>
                 <td>
-                  <div class="dropdown mb-0">
+                  <div class="dropdown mb-0" style="text-align: center;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-info-circle"></i>
                       <span class="text">Detalls</span>
