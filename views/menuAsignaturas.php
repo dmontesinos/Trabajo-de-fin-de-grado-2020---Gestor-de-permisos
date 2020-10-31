@@ -1,6 +1,9 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Llistat d'assignatures</h1>
-  <!--a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a-->
+  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+    <i class="fa fa-upload"></i> Importar assignatures
+  </a>
+
 
   <a href="#" class="btn btn-success btn-icon-split" style="float: right">
     <span class="icon text-white-50">
@@ -27,11 +30,6 @@
 	            <tr>
   		          <td><?php echo $asignatura['idAsignaturas'];?></td>
   		          <td><?php echo $asignatura['nombre'];?></td>
-                <!--td>
-                  <a href="#" class="btn btn-danger btn-circle">
-                    <i class="fas fa-trash"></i>
-                  </a>
-                </td-->
                 <td >
                   <div class="dropdown mb-0" style="text-align: center">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
