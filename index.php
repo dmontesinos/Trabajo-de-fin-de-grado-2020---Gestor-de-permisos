@@ -17,6 +17,9 @@ switch ($accion) {
     case 'addCentro':
         require __DIR__.'/controllers/Centros/addCentro.php';
         break;
+    case 'editCentro':
+        require __DIR__.'/controllers/Centros/editCentro.php';
+        break;
     case 'delCentro':
         require __DIR__.'/controllers/Centros/delCentro.php';
         break;
