@@ -1,7 +1,7 @@
 <?php
-function borrarCentro($connexion, $id) {
+function borrarEstudio($connexion, $id) {
   try{
-    $consulta = $connexion->prepare('DELETE FROM centros WHERE idCentro = :id');
+    $consulta = $connexion->prepare('DELETE FROM estudios WHERE idEstudio = :id');
     $parametros = [
       'id' => $id,
     ];

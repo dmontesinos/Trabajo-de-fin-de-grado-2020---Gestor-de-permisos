@@ -27,7 +27,16 @@ switch ($accion) {
 
     // Gestión de Estudios
     case 'estudios':
-        require __DIR__.'/controllers/estudios.php';
+        require __DIR__.'/controllers/Estudios/estudios.php';
+        break;
+    case 'addEstudio':
+        require __DIR__.'/controllers/Estudios/addEstudio.php';
+        break;
+    case 'editEstudio':
+        require __DIR__.'/controllers/Estudios/editEstudio.php';
+        break;
+    case 'delEstudio':
+        require __DIR__.'/controllers/Estudios/delEstudio.php';
         break;
 
 

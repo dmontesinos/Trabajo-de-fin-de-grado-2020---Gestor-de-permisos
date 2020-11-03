@@ -4,5 +4,5 @@ include "models/consultarEstudios.php";
 
 $lista = consultarEstudios(conexionBD());
 
-include "views/menuEstudios.php";
+include "views/Estudios/menuEstudios.php";
 ?>

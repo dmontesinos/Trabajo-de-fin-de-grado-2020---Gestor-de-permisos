@@ -8,6 +8,7 @@ function mostrarContenidoPricipal () {
     });
 }
 
+// MENUS
 function mostrarMenuCentros() {
     $(document).ready(function(){
         $('#menuCentros').click(function(){
@@ -37,7 +38,8 @@ function mostrarMenuAsignaturas() {
         });
     });
 }
-
+// FIN MENUS
+// CENTROS
 function mostrarAddCentro() {
     $(document).ready(function(){
         $('#addCentro').click(function(){
@@ -47,14 +49,6 @@ function mostrarAddCentro() {
         });
     });
 }
-
-/*function mostrarCentros() {
-  $(document).ready(function(){
-      $('#container-fluid').load('index.php?accion=centros', function () {
-          console.log('Carga satisfactoria de centros.');
-      });
-  });
-}*/
 
 function eliminarCentro (id_centro) {
     $(document).ready(function(){
@@ -86,23 +80,46 @@ function mostrarModificarCentro (id_centro) {
         });
     });
 }
-
-/*function editarCentro (id_centro, nombre_centro, acronimo_centro) {
+// FIN CENTROS
+// ESTUDIOS
+function mostrarAddEstudio() {
     $(document).ready(function(){
-        $('#editCentro').click (function () {
+        $('#addEstudio').click(function(){
+            $('#container-fluid').load('index.php?accion=addEstudio', function () {
+                console.log('Carga satisfactoria de añadir estudio.');
+            });
+        });
+    });
+}
+
+function eliminarEstudio (id_estudio) {
+    $(document).ready(function(){
+        $('#botonBorrarEstudio-'+id_estudio).click (function () {
             $.ajax({
-                url: 'index.php?accion=editCentro',
-                data: {
-                  idCentro: id_centro,
-                  nombre: nombre_centro,
-                  acronimo: acronimo_centro,
-                },
+                url: 'index.php?accion=delEstudio',
+                data: {id: id_estudio},
                 type: 'post',
                 success: function(output) {
                     $('#container-fluid').html(output);
                 }
             });
-            console.log('Centro editado correctamente.');
+            console.log('Estudio borrado correctamente.');
         });
     });
-}*/
+}
+
+function mostrarModificarEstudio (id_estudio) {
+    $(document).ready(function(){
+        $('#botonEditarEstudio-'+id_estudio).click (function () {
+            $.ajax({
+                url: 'index.php?accion=editEstudio',
+                data: {id: id_estudio},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+        });
+    });
+}
+// FIN ESTUDIOS

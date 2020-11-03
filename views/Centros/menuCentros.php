@@ -36,7 +36,7 @@
                     <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
                       <a id="botonEditarCentro-<?php echo $centro['idCentro'];?>" class="dropdown-item" href="#">Modificar</a>
                       <div class="dropdown-divider"></div>
-                      <a id="botonBorrar-<?php echo $centro['idCentro'];?>" class="dropdown-item" href="#">Eliminar</a>
+                      <a id="botonBorrarCentro-<?php echo $centro['idCentro'];?>" class="dropdown-item" href="#">Eliminar</a>
                       <script>eliminarCentro(<?php echo $centro['idCentro'];?>)</script>
                       <script>mostrarModificarCentro(<?php echo $centro['idCentro'];?>)</script>
                     </div>
