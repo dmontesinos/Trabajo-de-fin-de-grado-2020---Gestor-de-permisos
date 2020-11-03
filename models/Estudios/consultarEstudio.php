@@ -1,0 +1,18 @@
+<?php
+function consultarEstudio($connexion, $id) {
+  try{
+
+    $consulta = $connexion->prepare('SELECT * FROM estudios WHERE idEstudio = :id');
+    $parametros = [
+      'id' => $id,
+    ];
+
+    $consulta->execute($parametros);
+    $consulta = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+    return($consulta);
+  }catch(PDOException $e){
+      return "Error: " . $e->getMessage();
+  }
+}
+?>

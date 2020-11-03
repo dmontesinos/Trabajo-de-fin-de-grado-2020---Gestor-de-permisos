@@ -1,6 +1,6 @@
 <?php
 include "models/conexionBD.php";
-include "models/consultarEstudios.php";
+include "models/Estudios/consultarEstudios.php";
 
 $lista = consultarEstudios(conexionBD());
 
