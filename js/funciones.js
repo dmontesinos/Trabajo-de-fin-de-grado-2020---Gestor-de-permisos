@@ -86,7 +86,7 @@ function mostrarAddEstudio() {
     $(document).ready(function(){
         $('#addEstudio').click(function(){
             $('#container-fluid').load('index.php?accion=addEstudio', function () {
-                console.log('Carga satisfactoria de añadir estudio.');
+                console.log('Carga satisfactoria de añadir asignatura.');
             });
         });
     });
@@ -108,12 +108,12 @@ function eliminarEstudio (id_estudio) {
     });
 }
 
-function mostrarModificarEstudio (id_estudio) {
+function mostrarModificarEstudio (id_asignatura) {
     $(document).ready(function(){
-        $('#botonEditarEstudio-'+id_estudio).click (function () {
+        $('#botonEditarEstudio-'+id_asignatura).click (function () {
             $.ajax({
                 url: 'index.php?accion=editEstudio',
-                data: {id: id_estudio},
+                data: {id: id_asignatura},
                 type: 'post',
                 success: function(output) {
                     $('#container-fluid').html(output);
@@ -123,3 +123,45 @@ function mostrarModificarEstudio (id_estudio) {
     });
 }
 // FIN ESTUDIOS
+// ASIGNATURAS
+function mostrarAddAsignatura() {
+    $(document).ready(function(){
+        $('#addAsignatura').click(function(){
+            $('#container-fluid').load('index.php?accion=addAsignatura', function () {
+                console.log('Carga satisfactoria de añadir asignatura.');
+            });
+        });
+    });
+}
+
+function eliminarAsignatura (id_asignatura) {
+    $(document).ready(function(){
+        $('#botonBorrarAsignatura-'+id_asignatura).click (function () {
+            $.ajax({
+                url: 'index.php?accion=delAsignatura',
+                data: {id: id_asignatura},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Asignatura borrada correctamente.');
+        });
+    });
+}
+
+function mostrarModificarAsignatura (id_asignatura) {
+    $(document).ready(function(){
+        $('#botonEditarAsignatura-'+id_asignatura).click (function () {
+            $.ajax({
+                url: 'index.php?accion=editAsignatura',
+                data: {id: id_asignatura},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+        });
+    });
+}
+// FIN ASIGNATURAS

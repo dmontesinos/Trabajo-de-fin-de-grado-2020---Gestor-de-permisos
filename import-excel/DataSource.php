@@ -26,7 +26,7 @@ class DataSource
 
     const PASSWORD = 'q1w2e3r4';
 
-    const DATABASENAME = 'pruebas_import';
+    const DATABASENAME = 'gestor_de_permisos';
 
     private $conn;
 

@@ -20,7 +20,7 @@ if(isset($_POST['idCentro']) && (!empty($_POST['idCentro']))){
     echo '<script type="text/javascript">',
     '$(document).ready(function(){',
         '$("#container-fluid").load("index.php?accion=addCentro", function () {',
-            'alert("El centro ha sido añadido correctamente.");',
+            'alert("El centre s\'ha afegit correctament.");',
         '});',
     '});',
      '</script>';
@@ -32,7 +32,7 @@ if(isset($_POST['idCentro']) && (!empty($_POST['idCentro']))){
   echo '<script type="text/javascript">',
   '$(document).ready(function(){',
       '$("#container-fluid").load("index.php?accion=addCentro", function () {',
-          'alert("El centro no ha podido ser añadido. Error: '.$error.'");',
+          'alert("El centro no s\'ha pogut afegir. Error: '.$error.'");',
       '});',
   '});',
    '</script>';

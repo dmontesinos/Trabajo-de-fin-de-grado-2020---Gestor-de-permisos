@@ -9,7 +9,7 @@ if(isset($_POST['id']) && !empty($_POST['id'])) {
       echo '<script type="text/javascript">',
       '$(document).ready(function(){',
           '$("#container-fluid").load("index.php?accion=centros", function () {',
-              'alert("El centro ha sido eliminado correctamente.");',
+              'alert("El centre s\'ha eliminat correctament.");',
           '});',
       '});',
        '</script>';
@@ -17,7 +17,7 @@ if(isset($_POST['id']) && !empty($_POST['id'])) {
       echo '<script type="text/javascript">',
       '$(document).ready(function(){',
           '$("#container-fluid").load("index.php?accion=centros", function () {',
-              'alert("El centro no ha podido ser eliminado.");',
+              'alert("El centre no s\'ha pogut eliminar.");',
           '});',
       '});',
        '</script>';

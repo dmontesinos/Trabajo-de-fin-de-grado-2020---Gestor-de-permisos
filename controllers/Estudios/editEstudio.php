@@ -26,7 +26,7 @@ if(isset($_POST['idEstudio']) && (!empty($_POST['idEstudio']))){
     echo '<script type="text/javascript">',
     '$(document).ready(function(){',
         '$("#container-fluid").load("index.php?accion=estudios", function () {',
-            'alert("El estudio ha sido modificado correctamente.");',
+            'alert("L\'estudi s\'ha modificat correctament.");',
         '});',
     '});',
      '</script>';
@@ -37,7 +37,7 @@ if(isset($_POST['idEstudio']) && (!empty($_POST['idEstudio']))){
     echo '<script type="text/javascript">',
     '$(document).ready(function(){',
         '$("#container-fluid").load("index.php?accion=estudios", function () {',
-            'alert("El estudio no ha podido ser modificado. Error: '.$error.'");',
+            'alert("L\'estudi no s\'ha pogut modificar. Error: '.$error.'");',
         '});',
     '});',
      '</script>';

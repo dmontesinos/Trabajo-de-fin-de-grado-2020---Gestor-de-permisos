@@ -5,7 +5,7 @@
   </a>
 
 
-  <a href="#" class="btn btn-success btn-icon-split" style="float: right">
+  <a href="#" class="btn btn-success btn-icon-split" style="float: right" id="addAsignatura">
     <span class="icon text-white-50">
       <i class="fa fa-plus" aria-hidden="true"></i>
     </span>
@@ -22,7 +22,6 @@
               <th>ID</th>
               <th>Nom</th>
               <th style="width:10%">Opcions</th>
-
             </tr>
       	</thead>
       	<tbody>
@@ -31,15 +30,17 @@
   		          <td><?php echo $asignatura['idAsignaturas'];?></td>
   		          <td><?php echo $asignatura['nombre'];?></td>
                 <td >
-                  <div class="dropdown mb-0" style="text-align: center">
+                  <div class="dropdown mb-0" style="text-align: center;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-info-circle"></i>
                       <span class="text">Detalls</span>
                     </button>
                     <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Modificar</a>
+                      <a id="botonEditarAsignatura-<?php echo $asignatura['idAsignaturas'];?>" class="dropdown-item" href="#">Modificar</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Eliminar</a>
+                      <a id="botonBorrarAsignatura-<?php echo $asignatura['idAsignaturas'];?>" class="dropdown-item" href="#">Eliminar</a>
+                      <script>eliminarAsignatura(<?php echo $asignatura['idAsignaturas'];?>)</script>
+                      <script>mostrarModificarAsignatura(<?php echo $asignatura['idAsignaturas'];?>)</script>
                     </div>
                   </div>
                 </td>
@@ -48,4 +49,7 @@
   		</tbody>
 	</table>
 </div>
+
+<!-- Funciones personalizadas -->
 <script src="js/tablas/tablaAsignaturas.js"></script>
+<script>mostrarAddAsignatura()</script>

@@ -21,7 +21,7 @@ if(isset($_POST['idCentro']) && (!empty($_POST['idCentro']))){
     echo '<script type="text/javascript">',
     '$(document).ready(function(){',
         '$("#container-fluid").load("index.php?accion=centros", function () {',
-            'alert("El centro ha sido modificado correctamente.");',
+            'alert("El centre s\'ha modificat correctament.");',
         '});',
     '});',
      '</script>';
@@ -32,7 +32,7 @@ if(isset($_POST['idCentro']) && (!empty($_POST['idCentro']))){
     echo '<script type="text/javascript">',
     '$(document).ready(function(){',
         '$("#container-fluid").load("index.php?accion=centros", function () {',
-            'alert("El centro no ha podido ser modificado. Error: '.$error.'");',
+            'alert("El centre no s\'ha pogut modificar. Error: '.$error.'");',
         '});',
     '});',
      '</script>';

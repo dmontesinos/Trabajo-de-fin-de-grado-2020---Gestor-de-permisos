@@ -3,7 +3,7 @@ use Phppot\DataSource;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 require_once 'DataSource.php';
-$servidor = "localhost"; $usuario = "root"; $contrasenia = "q1w2e3r4"; $database = "pruebas_import";
+$servidor = "localhost"; $usuario = "root"; $contrasenia = "q1w2e3r4"; $database = "gestor_de_permisos";
 $db = new DataSource();
 $conn = $db->getConnection();
 require_once ('./vendor/autoload.php');
@@ -29,21 +29,73 @@ if (isset($_POST["import"])) {
         $spreadSheetAry = $excelSheet->toArray();
         $sheetCount = count($spreadSheetAry);
 
-        print_r($spreadSheetAry);
+
+        //echo sizeof($spreadSheetAry);
+
+
+        /*for($i=6; $i<274; $i++){
+          echo "Codi: ".$spreadSheetAry[$i][0]."<br/>";
+          echo "Asignatura: ".$spreadSheetAry[$i][1]."<br/>";
+
+          echo "Curs: ".$spreadSheetAry[$i][2]."<br/>";
+          echo "Grup: ".$spreadSheetAry[$i][3]."<br/>";
+          echo "Tipologia acadèmica: ".$spreadSheetAry[$i][4]."<br/>";
+          echo "Activ.: ".$spreadSheetAry[$i][5]."<br/>";
+          echo "Tp: ".$spreadSheetAry[$i][5]."<br/>";
+          echo "Vp: ".$spreadSheetAry[$i][6]."<br/>";
+          echo "Torn: ".$spreadSheetAry[$i][7]."<br/><br/>";
+
+          echo "Torn: ".$spreadSheetAry[i][8];
+          echo "Torn: ".$spreadSheetAry[i][9];
+          echo "Torn: ".$spreadSheetAry[i][10];
+          echo "Torn: ".$spreadSheetAry[i][11];
+
+          //print_r($spreadSheetAry[i]);
+        }*/
+
         $id = 2;
 
         $conexion = new PDO("mysql:host=$servidor;dbname=$database;charset=UTF8", $usuario, $contrasenia);
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $consulta = $conexion->prepare('INSERT INTO tbl_info (id, name, description, date) VALUES (:id,:name,:description,current_time)');
-        $parametros = [
-          'id' => $id,
-          'name' => $spreadSheetAry[0][0],
-          'description' => $spreadSheetAry[0][1],
-        ];
+        for($i=6; $i<274; $i++){
 
-        $consulta->execute($parametros);
+
+          //Comprobación para ver si existe la ID que vamos a ingresar
+          $consultaExiste = $conexion->prepare('SELECT * FROM asignaturas WHERE idAsignaturas = :idAsignaturas');
+          $parametrosExiste = [
+            'idAsignaturas' => $spreadSheetAry[$i][0],
+          ];
+          $consultaExiste->execute($parametrosExiste);
+          $consultaExiste = $consultaExiste->fetchAll(PDO::FETCH_ASSOC);
+
+          //Si no hay contenido, entendemos que no existe y por tanto la añadimos.
+          if(empty($consultaExiste)){
+            $consulta = $conexion->prepare('INSERT INTO asignaturas (idAsignaturas, nombre) VALUES (:idAsignaturas,:nombre)');
+            $parametros = [
+              'idAsignaturas' => $spreadSheetAry[$i][0],
+              'nombre' => $spreadSheetAry[$i][1],
+            ];
+
+            $consulta->execute($parametros);
+          }
+        }
+
+
+        /*for($i=0; $i<5; $i++){
+          $consulta = $conexion->prepare('INSERT INTO tbl_info (id, name, description, date) VALUES (:id,:name,:description,current_time)');
+          $parametros = [
+            'id' => $id,
+            'name' => $spreadSheetAry[$i][0],
+            'description' => $spreadSheetAry[$i][1],
+          ];
+
+          $consulta->execute($parametros);
+        }*/
+
+
+
 
 
 
@@ -116,7 +168,7 @@ if (isset($_POST["import"])) {
         }*/
     } else {
         $type = "error";
-        $message = "Invalid File Type. Upload Excel File.";
+        $message = "Tipus d'arxiu invàlid. Puja un fitxer d'Excel. (.xlsx/.xls)";
     }
 }
 ?>
@@ -214,7 +266,7 @@ div#response.display-block {
 
 
 <?php
-$sqlSelect = "SELECT * FROM tbl_info";
+$sqlSelect = "SELECT * FROM asignaturas";
 $result = $db->select($sqlSelect);
 if (! empty($result)) {
     ?>
@@ -222,8 +274,8 @@ if (! empty($result)) {
     <table class='tutorial-table'>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
+                <th>ID</th>
+                <th>Nombre</th>
 
             </tr>
         </thead>
@@ -232,8 +284,8 @@ if (! empty($result)) {
         ?>
         <tbody>
             <tr>
-                <td><?php  echo $row['name']; ?></td>
-                <td><?php  echo $row['description']; ?></td>
+                <td><?php  echo $row['idAsignaturas']; ?></td>
+                <td><?php  echo $row['nombre']; ?></td>
             </tr>
 <?php
     }

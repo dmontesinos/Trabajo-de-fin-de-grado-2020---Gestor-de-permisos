@@ -39,7 +39,6 @@
                 echo '<label for="activo">No</label><br>';
               }
              ?>
-            <!--input id="actiu" type="text" class="form-control" placeholder="Actiu" name="actiu" value="<?php echo $estudio['actiu'];?>"-->
           </div>
           <div class="col">
             <h5>Tipus</h5>

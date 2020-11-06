@@ -42,7 +42,16 @@ switch ($accion) {
 
     // Gestión de Asignaturas
     case 'asignaturas':
-        require __DIR__.'/controllers/asignaturas.php';
+        require __DIR__.'/controllers/Asignaturas/asignaturas.php';
+        break;
+    case 'addAsignatura':
+        require __DIR__.'/controllers/Asignaturas/addAsignatura.php';
+        break;
+    case 'editAsignatura':
+        require __DIR__.'/controllers/Asignaturas/editAsignatura.php';
+        break;
+    case 'delAsignatura':
+        require __DIR__.'/controllers/Asignaturas/delAsignatura.php';
         break;
 
 
