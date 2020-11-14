@@ -230,15 +230,59 @@ if (isset($_POST["import"])) {
 
 
           if(empty($consultaExiste)){
-            $consulta = $conexion->prepare('INSERT INTO Grupo_has_Asignaturas (Grupo_idGrupo, Asignaturas_idAsignaturas)
-                                            VALUES (:idGrupo, :idAsignaturas)');
+            $consulta = $conexion->prepare('INSERT INTO Grupo_has_Asignaturas (Grupo_idGrupo, Asignaturas_idAsignaturas, ocupacion)
+                                            VALUES (:idGrupo, :idAsignaturas, :ocupacion)');
             $parametros = [
               'idGrupo' => $spreadSheetAry[$i][3],
               'idAsignaturas' => $spreadSheetAry[$i][0],
+              'ocupacion' => $spreadSheetAry[$i][21],
             ];
             $consulta->execute($parametros);
           }
           // Fin vincular asignatura + Grupo/año
+
+
+
+          // Vincular profesor con grupo y año + ocupación
+          if($spreadSheetAry[$i][27] != ""){
+
+            $consultaExiste = $conexion->prepare('
+                                                  SELECT *
+                                                  FROM Profesores_has_Grupo AS pg
+                                                  INNER JOIN Grupo AS g
+                                                  ON pg.Grupo_idGrupo = g.idGrupo
+                                                  INNER JOIN Anio AS a
+                                                  ON g.Anio_inicio = a.inicio
+                                                  INNER JOIN Profesores AS pr
+                                                  ON pr.niu = pg.Profesores_niu
+                                                  WHERE pg.Profesores_niu = :niu
+                                                  AND pg.Grupo_idGrupo = :idGrupo
+                                                  AND pg.Grupo_Anio_inicio = :anio
+                                                  ');
+
+            $parametrosExiste = [
+              'niu' => $spreadSheetAry[$i][27],
+              'idGrupo' => $spreadSheetAry[$i][3],
+              'anio' => $anioAcademico[0],
+
+            ];
+            $consultaExiste->execute($parametrosExiste);
+            $consultaExiste = $consultaExiste->fetchAll(PDO::FETCH_ASSOC);
+
+
+            if(empty($consultaExiste)){
+              $consulta = $conexion->prepare('INSERT INTO Profesores_has_Grupo
+                                              VALUES (:niu, :idGrupo, :anio)');
+              $parametros = [
+                'niu' => $spreadSheetAry[$i][27],
+                'idGrupo' => $spreadSheetAry[$i][3],
+                'anio' => $anioAcademico[0],
+              ];
+              $consulta->execute($parametros);
+            }
+          }
+          // FIN vincular profesor con grupo
+
 
         }
 
