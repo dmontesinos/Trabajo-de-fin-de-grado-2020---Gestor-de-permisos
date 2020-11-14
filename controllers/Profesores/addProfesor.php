@@ -23,7 +23,7 @@ if(isset($_POST['niu']) && (!empty($_POST['niu']))){
     echo '<script type="text/javascript">',
     '$(document).ready(function(){',
         '$("#container-fluid").load("index.php?accion=addProfesor", function () {',
-            'alert("El professor s\'ha modificat correctament.");',
+            'alert("El professor s\'ha afegit correctament.");',
         '});',
     '});',
      '</script>';
@@ -35,7 +35,7 @@ if(isset($_POST['niu']) && (!empty($_POST['niu']))){
   echo '<script type="text/javascript">',
   '$(document).ready(function(){',
       '$("#container-fluid").load("index.php?accion=addProfesor", function () {',
-          'alert("El professor no s\'ha pogut modificar. Error: '.$error.'");',
+          'alert("El professor no s\'ha pogut afegir. Error: '.$error.'");',
       '});',
   '});',
    '</script>';

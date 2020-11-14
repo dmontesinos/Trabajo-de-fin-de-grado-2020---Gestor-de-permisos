@@ -18,7 +18,7 @@ if(isset($_POST['idAsignatura']) && (!empty($_POST['idAsignatura']))){
     echo '<script type="text/javascript">',
     '$(document).ready(function(){',
         '$("#container-fluid").load("index.php?accion=addAsignatura", function () {',
-            'alert("L\'assignatura s\'ha modificat correctament.");',
+            'alert("L\'assignatura s\'ha afegit correctament.");',
         '});',
     '});',
      '</script>';
@@ -30,7 +30,7 @@ if(isset($_POST['idAsignatura']) && (!empty($_POST['idAsignatura']))){
   echo '<script type="text/javascript">',
   '$(document).ready(function(){',
       '$("#container-fluid").load("index.php?accion=addAsignatura", function () {',
-          'alert("L\'assignatura no s\'ha pogut modificar. Error: '.$error.'");',
+          'alert("L\'assignatura no s\'ha pogut agefir. Error: '.$error.'");',
       '});',
   '});',
    '</script>';

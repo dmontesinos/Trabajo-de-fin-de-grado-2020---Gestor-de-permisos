@@ -186,6 +186,20 @@ function mostrarAddProfesor() {
     });
 }
 
+function mostrarModificarProfesor (id_profesor) {
+    $(document).ready(function(){
+        $('#botonEditarProfesor-'+id_profesor).click (function () {
+            $.ajax({
+                url: 'index.php?accion=editProfesor',
+                data: {id: id_profesor},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+        });
+    });
+}
 /*function eliminarAsignatura (id_asignatura) {
     $(document).ready(function(){
         $('#botonBorrarAsignatura-'+id_asignatura).click (function () {
@@ -202,18 +216,5 @@ function mostrarAddProfesor() {
     });
 }
 
-function mostrarModificarAsignatura (id_asignatura) {
-    $(document).ready(function(){
-        $('#botonEditarAsignatura-'+id_asignatura).click (function () {
-            $.ajax({
-                url: 'index.php?accion=editAsignatura',
-                data: {id: id_asignatura},
-                type: 'post',
-                success: function(output) {
-                    $('#container-fluid').html(output);
-                }
-            });
-        });
-    });
-}*/
+*/
 // FIN ASIGNATURAS
