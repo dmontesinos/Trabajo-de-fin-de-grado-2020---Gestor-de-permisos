@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Trabajo de fin de grado - 2020">
     <meta name="author" content="Daniel Montesinos Santos">
-  
+
 
     <title>Panell d'administració</title>
 
@@ -30,7 +30,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <?php 
+    <?php
     include "views/sidebarIzquierdo.html";
     ?>
 
@@ -39,16 +39,16 @@
 
       <!-- Main Content -->
       <div id="content">
-        <?php 
+        <?php
         include "views/topbar.html";
         ?>
-        
+
         <!-- Begin Page Content -->
         <div class="container-fluid" id="container-fluid">
-            
+
         </div>
-        
-        
+
+
 
       </div>
       <!-- End of Main Content -->
@@ -112,6 +112,7 @@
   <script>mostrarMenuCentros()</script>
   <script>mostrarMenuAsignaturas()</script>
   <script>mostrarMenuEstudios()</script>
+  <script>mostrarMenuProfesores()</script>
 
 
 </body>

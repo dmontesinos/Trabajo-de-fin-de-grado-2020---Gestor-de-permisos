@@ -38,6 +38,15 @@ function mostrarMenuAsignaturas() {
         });
     });
 }
+function mostrarMenuProfesores() {
+    $(document).ready(function(){
+        $('#menuProfesores').click(function(){
+            $('#container-fluid').load('index.php?accion=profesores', function () {
+                console.log('Carga satisfactoria de profesores.');
+            });
+        });
+    });
+}
 // FIN MENUS
 // CENTROS
 function mostrarAddCentro() {
@@ -164,4 +173,47 @@ function mostrarModificarAsignatura (id_asignatura) {
         });
     });
 }
+// FIN ASIGNATURAS
+
+// PROFESORES
+function mostrarAddProfesor() {
+    $(document).ready(function(){
+        $('#addProfesor').click(function(){
+            $('#container-fluid').load('index.php?accion=addProfesor', function () {
+                console.log('Carga satisfactoria de añadir profesor.');
+            });
+        });
+    });
+}
+
+/*function eliminarAsignatura (id_asignatura) {
+    $(document).ready(function(){
+        $('#botonBorrarAsignatura-'+id_asignatura).click (function () {
+            $.ajax({
+                url: 'index.php?accion=delAsignatura',
+                data: {id: id_asignatura},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Asignatura borrada correctamente.');
+        });
+    });
+}
+
+function mostrarModificarAsignatura (id_asignatura) {
+    $(document).ready(function(){
+        $('#botonEditarAsignatura-'+id_asignatura).click (function () {
+            $.ajax({
+                url: 'index.php?accion=editAsignatura',
+                data: {id: id_asignatura},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+        });
+    });
+}*/
 // FIN ASIGNATURAS

@@ -53,9 +53,8 @@ if (isset($_POST["import"])) {
           ];
 
           $consulta->execute($parametros);
-        } else {
-          echo "El curso académico ya existe.<br/>";
         }
+
         // FIN CONSULTAR AÑO ACADEMICO
         // Comienzo consultar si el plan académico existe
         $planAcademico = explode(" - ", $spreadSheetAry[2][0]);
@@ -85,20 +84,7 @@ if (isset($_POST["import"])) {
             'tipo' => $tipoPlan[0],
           ];
           $consulta->execute($parametros);
-        } else {
-          echo "El estudio ya existe.<br/>";
         }
-
-
-
-
-
-        /*
-        A partir de aquí se deben añadir las asignaturas, profesores, grupos, etc
-        mediante el bucle de las 274 iteraciones.
-        Poner todas las comprobaciones en funciones para llamarlas desde el flujo
-        principal!!!
-        */
 
         for($i=6; $i<sizeof($spreadSheetAry)-1; $i++){
           // Comprobación de si existe la asignatura
@@ -213,13 +199,13 @@ if (isset($_POST["import"])) {
           // Inicio vincular asignatura + Grupo/año (POSIBLEMENTE ESTO DEBE IR FUERA DEL BUCLE Y SE DEBE HACER EN UNA SEGUNDA ITERACIÓN!!!!)
           // IGUAL NO ES NECESARIA HACER UNA SEGUNDA ITERACIÓN SI EN ESTA ÚNICA YA HEMOS CREADO LOS GRUPOS Y LAS ASIGNATURAS PRÉVIAMENTE!
           $consultaExiste = $conexion->prepare('
-                                                SELECT *
-                                                FROM Grupo_has_Asignaturas AS ga
-                                                INNER JOIN Asignaturas AS a
-                                                ON a.idAsignaturas = ga.Asignaturas_idAsignaturas
-                                                INNER JOIN Grupo AS g
-                                                ON g.idGrupo = ga.Grupo_idGrupo
-                                                WHERE a.idAsignaturas = :idAsignaturas');
+                            SELECT *
+                            FROM Grupo_has_Asignaturas AS ga
+                            INNER JOIN Asignaturas AS a
+                            ON a.idAsignaturas = ga.Asignaturas_idAsignaturas
+                            INNER JOIN Grupo AS g
+                            ON g.idGrupo = ga.Grupo_idGrupo
+                            WHERE a.idAsignaturas = :idAsignaturas');
 
 
           $parametrosExiste = [
@@ -247,18 +233,18 @@ if (isset($_POST["import"])) {
           if($spreadSheetAry[$i][27] != ""){
 
             $consultaExiste = $conexion->prepare('
-                                                  SELECT *
-                                                  FROM Profesores_has_Grupo AS pg
-                                                  INNER JOIN Grupo AS g
-                                                  ON pg.Grupo_idGrupo = g.idGrupo
-                                                  INNER JOIN Anio AS a
-                                                  ON g.Anio_inicio = a.inicio
-                                                  INNER JOIN Profesores AS pr
-                                                  ON pr.niu = pg.Profesores_niu
-                                                  WHERE pg.Profesores_niu = :niu
-                                                  AND pg.Grupo_idGrupo = :idGrupo
-                                                  AND pg.Grupo_Anio_inicio = :anio
-                                                  ');
+                                        SELECT *
+                                        FROM Profesores_has_Grupo AS pg
+                                        INNER JOIN Grupo AS g
+                                        ON pg.Grupo_idGrupo = g.idGrupo
+                                        INNER JOIN Anio AS a
+                                        ON g.Anio_inicio = a.inicio
+                                        INNER JOIN Profesores AS pr
+                                        ON pr.niu = pg.Profesores_niu
+                                        WHERE pg.Profesores_niu = :niu
+                                        AND pg.Grupo_idGrupo = :idGrupo
+                                        AND pg.Grupo_Anio_inicio = :anio
+                                        ');
 
             $parametrosExiste = [
               'niu' => $spreadSheetAry[$i][27],
@@ -286,7 +272,8 @@ if (isset($_POST["import"])) {
 
         }
 
-
+        // Ejemplo de selección
+        /*
         $seleccion = 30;
         echo "Codi: ".$spreadSheetAry[$seleccion][0]."<br/>";
         echo "Asignatura: ".$spreadSheetAry[$seleccion][1]."<br/>";
@@ -300,144 +287,7 @@ if (isset($_POST["import"])) {
         //$profesor[1] = substr_replace($profesor[1] ,"", -1); //Eliminar la coma
         echo "Primer cognom: ".$apellidos[0]."<br/>";
         echo "Segon cognom: ".$apellidos[1]."<br/>";
-
-
-
-
-
-
-
-
-        /*for($i=6; $i<274; $i++){
-          echo "Codi: ".$spreadSheetAry[$i][0]."<br/>";
-          echo "Asignatura: ".$spreadSheetAry[$i][1]."<br/>";
-          echo "Curs: ".$spreadSheetAry[$i][2]."<br/>";
-          echo "Grup: ".$spreadSheetAry[$i][3]."<br/>";
-          echo "Tipologia acadèmica: ".$spreadSheetAry[$i][4]."<br/>";
-          echo "Activ.: ".$spreadSheetAry[$i][5]."<br/>";
-          echo "Tp: ".$spreadSheetAry[$i][5]."<br/>";
-          echo "Vp: ".$spreadSheetAry[$i][6]."<br/>";
-          echo "Torn: ".$spreadSheetAry[$i][7]."<br/><br/>";
-
-          echo "Torn: ".$spreadSheetAry[i][8];
-          echo "Torn: ".$spreadSheetAry[i][9];
-          echo "Torn: ".$spreadSheetAry[i][10];
-          echo "Torn: ".$spreadSheetAry[i][11];
-
-          //print_r($spreadSheetAry[i]);
-        }*/
-
-        $id = 2;
-
-        /*$conexion = new PDO("mysql:host=$servidor;dbname=$database;charset=UTF8", $usuario, $contrasenia);
-        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-        for($i=6; $i<274; $i++){
-          //Comprobación para ver si existe la ID que vamos a ingresar
-          $consultaExiste = $conexion->prepare('SELECT * FROM asignaturas WHERE idAsignaturas = :idAsignaturas');
-          $parametrosExiste = [
-            'idAsignaturas' => $spreadSheetAry[$i][0],
-          ];
-          $consultaExiste->execute($parametrosExiste);
-          $consultaExiste = $consultaExiste->fetchAll(PDO::FETCH_ASSOC);
-
-          //Si no hay contenido, entendemos que no existe y por tanto la añadimos. //Añadir ASIGNATURAS
-          if(empty($consultaExiste)){
-            $consulta = $conexion->prepare('INSERT INTO asignaturas (idAsignaturas, nombre) VALUES (:idAsignaturas,:nombre)');
-            $parametros = [
-              'idAsignaturas' => $spreadSheetAry[$i][0],
-              'nombre' => $spreadSheetAry[$i][1],
-            ];
-
-            $consulta->execute($parametros);
-          }
-        }*/
-
-
-        /*for($i=0; $i<5; $i++){
-          $consulta = $conexion->prepare('INSERT INTO tbl_info (id, name, description, date) VALUES (:id,:name,:description,current_time)');
-          $parametros = [
-            'id' => $id,
-            'name' => $spreadSheetAry[$i][0],
-            'description' => $spreadSheetAry[$i][1],
-          ];
-
-          $consulta->execute($parametros);
-        }*/
-
-
-
-
-
-
-        /*$consulta_registrar = $conexion->prepare('INSERT INTO factura (cantidadTotal, Importe, Fecha, ID_Usuario) VALUES (:cantidadTotal,:importe,current_time ,:ID_Usuario)');
-        $parametros = [
-            'cantidadTotal' => $cantidadTotal,
-            'importe' => $precioTotal,
-            'ID_Usuario' => $_SESSION['id'],
-        ];
-
-        $consulta_registrar->execute($parametros);
-        return true;*/
-
-
-
-
-        /*$id = 2;
-        $name = mysqli_real_escape_string($conn, $spreadSheetAry[0][0]);
-        $description = mysqli_real_escape_string($conn, $spreadSheetAry[0][1]);
-
-
-        $query = "insert into tbl_info(name,description) values(?,?)";
-        $paramType = "ss";
-        $paramArray = array(
-            $name,
-            $description
-        );
-
-        $insertId = $db->insert($query, $paramType, $paramArray);
-
-        if (! empty($insertId)) {
-            $type = "success";
-            $message = "Excel Data Imported into the Database";
-        } else {
-            $type = "error";
-            $message = "Problem in Importing Excel Data";
-        }
-
         */
-
-        /*for ($i = 0; $i <= $sheetCount; $i ++) {
-            $name = "";
-            if (isset($spreadSheetAry[$i][0])) {
-                $name = mysqli_real_escape_string($conn, $spreadSheetAry[$i][0]);
-            }
-            $description = "";
-            if (isset($spreadSheetAry[$i][1])) {
-                $description = mysqli_real_escape_string($conn, $spreadSheetAry[$i][1]);
-            }
-
-            if (! empty($name) || ! empty($description)) {
-                $query = "insert into tbl_info(name,description) values(?,?)";
-                $paramType = "ss";
-                $paramArray = array(
-                    $name,
-                    $description
-                );
-                $insertId = $db->insert($query, $paramType, $paramArray);
-                // $query = "insert into tbl_info(name,description) values('" . $name . "','" . $description . "')";
-                // $result = mysqli_query($conn, $query);
-
-                if (! empty($insertId)) {
-                    $type = "success";
-                    $message = "Excel Data Imported into the Database";
-                } else {
-                    $type = "error";
-                    $message = "Problem in Importing Excel Data";
-                }
-            }
-        }*/
     } else {
         $type = "error";
         $message = "Tipus d'arxiu invàlid. Puja un fitxer d'Excel. (.xlsx/.xls)";

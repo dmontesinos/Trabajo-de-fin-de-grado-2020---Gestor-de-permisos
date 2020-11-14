@@ -54,6 +54,20 @@ switch ($accion) {
         require __DIR__.'/controllers/Asignaturas/delAsignatura.php';
         break;
 
+    // Gestión de profesores
+    case 'profesores':
+        require __DIR__.'/controllers/Profesores/profesores.php';
+        break;
+    case 'addProfesor':
+        require __DIR__.'/controllers/Profesores/addProfesor.php';
+        break;
+    /*case 'editAsignatura':
+        require __DIR__.'/controllers/Asignaturas/editAsignatura.php';
+        break;
+    case 'delAsignatura':
+        require __DIR__.'/controllers/Asignaturas/delAsignatura.php';
+        break;*/
+
 
     default:
         require __DIR__ .'/controllers/portada.php';
