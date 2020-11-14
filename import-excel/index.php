@@ -162,29 +162,65 @@ if (isset($_POST["import"])) {
 
 
           if(empty($consultaExiste)){
-            $consulta = $conexion->prepare('INSERT INTO Grupo (idGrupo, Anio_inicio, ocupacion)
-                                            VALUES (:idGrupo, :Anio_inicio, :ocupacion)');
+            $consulta = $conexion->prepare('INSERT INTO Grupo (idGrupo, Anio_inicio)
+                                            VALUES (:idGrupo, :Anio_inicio)');
             $parametros = [
               'idGrupo' => $spreadSheetAry[$i][3],
               'Anio_inicio' => $anioAcademico[0],
-              'ocupacion' => $spreadSheetAry[$i][21],
             ];
             $consulta->execute($parametros);
           }
           // FIN COMPROBAR GRUPOS
 
+
+          // Inicio vincular asignatura con estudios
+          $consultaExiste = $conexion->prepare("
+                          SELECT * FROM Asignaturas_has_Estudios AS ae
+                          INNER JOIN Asignaturas AS a
+                          ON ae.Asignaturas_idAsignaturas = a.idAsignaturas
+                          INNER JOIN Estudios AS e
+                          ON ae.Estudios_idEstudios = e.idEstudio
+                          INNER JOIN Centros AS c
+                          ON c.idCentro = e.Centros_idCentros
+                          WHERE ae.Asignaturas_idAsignaturas = :idAsignaturas
+                          AND ae.Estudios_idEstudios = :idEstudio
+                          AND ae.Estudio_Centros_idCentros = :idCentro
+                          ");
+
+
+          $parametrosExiste = [
+            'idAsignaturas' => $spreadSheetAry[$i][0],
+            'idEstudio' => $idPlan[1],
+            'idCentro' => $idCentroPlan[0],
+          ];
+          $consultaExiste->execute($parametrosExiste);
+          $consultaExiste = $consultaExiste->fetchAll(PDO::FETCH_ASSOC);
+
+
+          if(empty($consultaExiste)){
+            $consulta = $conexion->prepare('INSERT INTO Asignaturas_has_Estudios
+                                            VALUES (:idAsignaturas, :idEstudio, :idCentro)');
+            $parametros = [
+              'idAsignaturas' => $spreadSheetAry[$i][0],
+              'idEstudio' => $idPlan[1],
+              'idCentro' => $idCentroPlan[0],
+            ];
+            $consulta->execute($parametros);
+          }
+          // FIN vincular asignatura con estudios
+
+
           // Inicio vincular asignatura + Grupo/año (POSIBLEMENTE ESTO DEBE IR FUERA DEL BUCLE Y SE DEBE HACER EN UNA SEGUNDA ITERACIÓN!!!!)
           // IGUAL NO ES NECESARIA HACER UNA SEGUNDA ITERACIÓN SI EN ESTA ÚNICA YA HEMOS CREADO LOS GRUPOS Y LAS ASIGNATURAS PRÉVIAMENTE!
-          $consultaExiste = $conexion->prepare('SELECT a.inicio FROM Grupo AS g INNER JOIN Anio AS a ON a.inicio = g.Anio_inicio WHERE g.idGrupo = :idGrupo AND a.inicio = :curso');
-          /*
-          SELECT *
-          FROM Grupo_has_Asignaturas AS ga
-          INNER JOIN Asignaturas AS a
-          ON a.idAsignaturas = ga.Asignaturas_idAsignaturas
-          INNER JOIN Grupo AS g
-          ON g.idGrupo = ga.Grupo_idGrupo
-          WHERE a.idAsignaturas = :idAsignaturas;
-          */
+          $consultaExiste = $conexion->prepare('
+                                                SELECT *
+                                                FROM Grupo_has_Asignaturas AS ga
+                                                INNER JOIN Asignaturas AS a
+                                                ON a.idAsignaturas = ga.Asignaturas_idAsignaturas
+                                                INNER JOIN Grupo AS g
+                                                ON g.idGrupo = ga.Grupo_idGrupo
+                                                WHERE a.idAsignaturas = :idAsignaturas');
+
 
           $parametrosExiste = [
             'idAsignaturas' => $spreadSheetAry[$i][0],
@@ -194,12 +230,11 @@ if (isset($_POST["import"])) {
 
 
           if(empty($consultaExiste)){
-            $consulta = $conexion->prepare('INSERT INTO Grupo (idGrupo, Anio_inicio, ocupacion)
-                                            VALUES (:idGrupo, :Anio_inicio, :ocupacion)');
+            $consulta = $conexion->prepare('INSERT INTO Grupo_has_Asignaturas (Grupo_idGrupo, Asignaturas_idAsignaturas)
+                                            VALUES (:idGrupo, :idAsignaturas)');
             $parametros = [
               'idGrupo' => $spreadSheetAry[$i][3],
-              'Anio_inicio' => $anioAcademico[0],
-              'ocupacion' => $spreadSheetAry[$i][21],
+              'idAsignaturas' => $spreadSheetAry[$i][0],
             ];
             $consulta->execute($parametros);
           }
