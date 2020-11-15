@@ -1,8 +1,8 @@
 <?php
-function consultarCentro($connexion, $id) {
+function consultarCentro($conexion, $id) {
   try{
 
-    $consulta = $connexion->prepare('SELECT * FROM centros WHERE idCentro = :id');
+    $consulta = $conexion->prepare('SELECT * FROM centros WHERE idCentro = :id');
     $parametros = [
       'id' => $id,
     ];

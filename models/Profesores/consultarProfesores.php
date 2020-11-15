@@ -1,7 +1,7 @@
 <?php
-function consultarProfesores($connexion) {
+function consultarProfesores($conexion) {
     try{
-        $consultar_profesores = $connexion->prepare("SELECT * FROM profesores");
+        $consultar_profesores = $conexion->prepare("SELECT * FROM profesores");
 
         $consultar_profesores->execute();
         $consultar_profesores = $consultar_profesores->fetchAll(PDO::FETCH_ASSOC);

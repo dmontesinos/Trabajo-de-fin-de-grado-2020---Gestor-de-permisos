@@ -1,7 +1,7 @@
 <?php
-function borrarAsignatura($connexion, $id) {
+function borrarAsignatura($conexion, $id) {
   try{
-    $consulta = $connexion->prepare('DELETE FROM asignaturas WHERE idAsignaturas = :id');
+    $consulta = $conexion->prepare('DELETE FROM asignaturas WHERE idAsignaturas = :id');
     $parametros = [
       'id' => $id,
     ];

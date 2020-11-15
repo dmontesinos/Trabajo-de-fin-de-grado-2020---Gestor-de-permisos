@@ -64,9 +64,9 @@ switch ($accion) {
     case 'editProfesor':
         require __DIR__.'/controllers/Profesores/editProfesor.php';
         break;
-    /*case 'delAsignatura':
-        require __DIR__.'/controllers/Asignaturas/delAsignatura.php';
-        break;*/
+    case 'delProfesor':
+        require __DIR__.'/controllers/Profesores/delProfesor.php';
+        break;
 
 
     default:

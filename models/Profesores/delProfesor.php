@@ -1,11 +1,9 @@
 <?php
-function addAsignatura($conexion, $id, $nombre) {
+function borrarProfesor($conexion, $id) {
   try{
-    $consulta = $conexion->prepare('INSERT INTO asignaturas(idAsignaturas, nombre) VALUES (:id, :nombre)');
-
+    $consulta = $conexion->prepare('DELETE FROM profesores WHERE niu = :id');
     $parametros = [
       'id' => $id,
-      'nombre' => $nombre,
     ];
 
     $consulta->execute($parametros);

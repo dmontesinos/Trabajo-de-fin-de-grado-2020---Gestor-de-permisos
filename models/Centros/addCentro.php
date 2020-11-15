@@ -1,7 +1,7 @@
 <?php
-function addCentro($connexion, $id, $nombre, $acronimo) {
+function addCentro($conexion, $id, $nombre, $acronimo) {
   try{
-    $consulta = $connexion->prepare('INSERT INTO centros(idCentro, nombre, acronimo) VALUES (:id, :nombre, :acronimo)');
+    $consulta = $conexion->prepare('INSERT INTO centros(idCentro, nombre, acronimo) VALUES (:id, :nombre, :acronimo)');
 
     $parametros = [
       'id' => $id,

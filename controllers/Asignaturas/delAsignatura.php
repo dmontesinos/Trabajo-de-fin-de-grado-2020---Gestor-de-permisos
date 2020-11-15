@@ -9,7 +9,7 @@ if(isset($_POST['id']) && !empty($_POST['id'])) {
       echo '<script type="text/javascript">',
       '$(document).ready(function(){',
           '$("#container-fluid").load("index.php?accion=asignaturas", function () {',
-              'alert("L\'assignatura ha sigut modificada correctament.");',
+              'alert("L\'assignatura ha sigut eliminada correctament.");',
           '});',
       '});',
        '</script>';
@@ -17,7 +17,7 @@ if(isset($_POST['id']) && !empty($_POST['id'])) {
       echo '<script type="text/javascript">',
       '$(document).ready(function(){',
           '$("#container-fluid").load("index.php?accion=asignaturas", function () {',
-              'alert("L\'assignatura no ha pogut ser modificada.");',
+              'alert("L\'assignatura no ha pogut ser eliminada.");',
           '});',
       '});',
        '</script>';

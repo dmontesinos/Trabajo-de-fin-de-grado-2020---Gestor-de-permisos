@@ -1,7 +1,7 @@
 <?php
-function consultarEstudios($connexion) {
+function consultarEstudios($conexion) {
     try{
-        $consultar_estudios = $connexion->prepare("SELECT * FROM estudios");
+        $consultar_estudios = $conexion->prepare("SELECT * FROM estudios");
         /*$parametros = [
             'idUsuario' => $_SESSION['id'],
         ];*/

@@ -1,7 +1,7 @@
 <?php
-function consultarCentros($connexion) {
+function consultarCentros($conexion) {
     try{
-        $consultar_centros = $connexion->prepare("SELECT * FROM centros");
+        $consultar_centros = $conexion->prepare("SELECT * FROM centros");
 
         $consultar_centros->execute();
         $consultar_centros = $consultar_centros->fetchAll(PDO::FETCH_ASSOC);

@@ -200,21 +200,19 @@ function mostrarModificarProfesor (id_profesor) {
         });
     });
 }
-/*function eliminarAsignatura (id_asignatura) {
+function eliminarProfesor (id_profesor) {
     $(document).ready(function(){
-        $('#botonBorrarAsignatura-'+id_asignatura).click (function () {
+        $('#botonBorrarProfesor-'+id_profesor).click (function () {
             $.ajax({
-                url: 'index.php?accion=delAsignatura',
-                data: {id: id_asignatura},
+                url: 'index.php?accion=delProfesor',
+                data: {id: id_profesor},
                 type: 'post',
                 success: function(output) {
                     $('#container-fluid').html(output);
                 }
             });
-            console.log('Asignatura borrada correctamente.');
+            console.log('Profesor borrado correctamente.');
         });
     });
 }
-
-*/
-// FIN ASIGNATURAS
+// FIN PROFESORES
