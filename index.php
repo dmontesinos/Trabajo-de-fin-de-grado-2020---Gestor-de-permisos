@@ -68,6 +68,34 @@ switch ($accion) {
         require __DIR__.'/controllers/Profesores/delProfesor.php';
         break;
 
+    // Gestión de grupos
+    case 'grupos':
+        require __DIR__.'/controllers/Grupos/grupos.php';
+        break;
+    /*case 'addProfesor':
+        require __DIR__.'/controllers/Profesores/addProfesor.php';
+        break;
+    case 'editProfesor':
+        require __DIR__.'/controllers/Profesores/editProfesor.php';
+        break;
+    case 'delProfesor':
+        require __DIR__.'/controllers/Profesores/delProfesor.php';
+        break;*/
+
+    // Gestión de departamentos
+    case 'departamentos':
+        require __DIR__.'/controllers/Departamentos/departamentos.php';
+        break;
+    case 'addDepartamento':
+        require __DIR__.'/controllers/Departamentos/addDepartamento.php';
+        break;
+    case 'editDepartamento':
+        require __DIR__.'/controllers/Departamentos/editDepartamento.php';
+        break;
+    case 'delDepartamento':
+        require __DIR__.'/controllers/Departamentos/delDepartamento.php';
+        break;
+
 
     default:
         require __DIR__ .'/controllers/portada.php';

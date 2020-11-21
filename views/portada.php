@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Trabajo de fin de grado - 2020">
@@ -113,6 +112,8 @@
   <script>mostrarMenuAsignaturas()</script>
   <script>mostrarMenuEstudios()</script>
   <script>mostrarMenuProfesores()</script>
+  <script>mostrarMenuGrupos()</script>
+  <script>mostrarMenuDepartamentos()</script>
 
 
 </body>

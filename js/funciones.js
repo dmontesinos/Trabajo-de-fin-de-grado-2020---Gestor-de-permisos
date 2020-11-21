@@ -38,6 +38,7 @@ function mostrarMenuAsignaturas() {
         });
     });
 }
+
 function mostrarMenuProfesores() {
     $(document).ready(function(){
         $('#menuProfesores').click(function(){
@@ -47,7 +48,28 @@ function mostrarMenuProfesores() {
         });
     });
 }
+
+function mostrarMenuGrupos() {
+    $(document).ready(function(){
+        $('#menuGrupos').click(function(){
+            $('#container-fluid').load('index.php?accion=grupos', function () {
+                console.log('Carga satisfactoria de grupos.');
+            });
+        });
+    });
+}
+
+function mostrarMenuDepartamentos() {
+    $(document).ready(function(){
+        $('#menuDepartamentos').click(function(){
+            $('#container-fluid').load('index.php?accion=departamentos', function () {
+                console.log('Carga satisfactoria de departamentos.');
+            });
+        });
+    });
+}
 // FIN MENUS
+
 // CENTROS
 function mostrarAddCentro() {
     $(document).ready(function(){
@@ -216,3 +238,45 @@ function eliminarProfesor (id_profesor) {
     });
 }
 // FIN PROFESORES
+
+// DEPARTAMENTOS
+function mostrarAddDepartamento() {
+    $(document).ready(function(){
+        $('#addDepartamento').click(function(){
+            $('#container-fluid').load('index.php?accion=addDepartamento', function () {
+                console.log('Carga satisfactoria de añadir departamento.');
+            });
+        });
+    });
+}
+
+function mostrarModificarDepartamento (id_departamento) {
+    $(document).ready(function(){
+        $('#botonEditarDepartamento-'+id_departamento).click (function () {
+            $.ajax({
+                url: 'index.php?accion=editDepartamento',
+                data: {id: id_departamento},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+        });
+    });
+}
+function eliminarDepartamento (id_departamento) {
+    $(document).ready(function(){
+        $('#botonBorrarDepartamento-'+id_departamento).click (function () {
+            $.ajax({
+                url: 'index.php?accion=delDepartamento',
+                data: {id: id_departamento},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Departamento borrado correctamente.');
+        });
+    });
+}
+// FIN DEPARTAMENTOS

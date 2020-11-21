@@ -1,13 +1,12 @@
 <?php
-function editarProfesor($conexion, $id, $nombre, $apellido1, $apellido2) {
+function editarProfesor($conexion, $id, $nombre, $apellidos) {
   try{
 
-    $consulta = $conexion->prepare('UPDATE profesores SET nombre = :nombre, apellido1 = :apellido1, apellido2 = :apellido2 WHERE niu = :id');
+    $consulta = $conexion->prepare('UPDATE profesores SET nombre = :nombre, apellidos = :apellidos WHERE niu = :id');
     $parametros = [
       'id' => $id,
       'nombre' => $nombre,
-      'apellido1' => $apellido1,
-      'apellido2' => $apellido2,
+      'apellidos' => $apellidos,
     ];
 
     $consulta->execute($parametros);

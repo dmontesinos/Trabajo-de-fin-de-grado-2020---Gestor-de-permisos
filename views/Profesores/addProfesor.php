@@ -13,10 +13,7 @@
           <input id="nombreProfesor" type="text" class="form-control" placeholder="Nom" name="nombreProfesor">
         </div>
         <div class="col">
-          <input id="apellido1Profesor" type="text" class="form-control" placeholder="Primer Cognom" name="apellido1Profesor">
-        </div>
-        <div class="col">
-          <input id="apellido2Profesor" type="text" class="form-control" placeholder="Segon Cognom" name="apellido2Profesor">
+          <input id="apellidosProfesor" type="text" class="form-control" placeholder="Cognoms" name="apellidosProfesor">
         </div>
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addProfesor">Enviar</button>

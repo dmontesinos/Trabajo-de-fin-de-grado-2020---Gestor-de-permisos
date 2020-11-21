@@ -118,19 +118,21 @@ if (isset($_POST["import"])) {
             // Gestión nombre profesor
             // PROBLEMAS CON PROFESORES COMO DOLORES ISABEL REXACHS DEL ROSARIO (el "del" del apellido no lo gestiono)
             $profesor = explode(", ", $spreadSheetAry[$i][28]);
-            $apellidos = explode(" ", $profesor[0]);
+
+            //$apellidos = explode(" ", $profesor[0]);
             //echo "</br>Nom: ".$profesor[1]."<br/>";
             //echo "Primer cognom: ".$apellidos[0]."<br/>";
             //echo "Segon cognom: ".$apellidos[1]."<br/>";
 
 
             if(empty($consultaExiste)){
-              $consulta = $conexion->prepare('INSERT INTO Profesores (niu, nombre, apellido1, apellido2) VALUES (:niu, :nombre, :apellido1, :apellido2)');
+              $consulta = $conexion->prepare('INSERT INTO Profesores (niu, nombre, apellidos) VALUES (:niu, :nombre, :apellidos)');
               $parametros = [
                 'niu' => $spreadSheetAry[$i][27],
                 'nombre' => $profesor[1],
-                'apellido1' => $apellidos[0],
-                'apellido2' => $apellidos[1],
+                //'apellido1' => $apellidos[0],
+                //'apellido2' => $apellidos[1],
+                'apellidos' => $profesor[0],
               ];
               $consulta->execute($parametros);
             }

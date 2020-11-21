@@ -6,16 +6,14 @@ require_once "models/Profesores/addProfesor.php";
 if(isset($_POST['niu']) && (!empty($_POST['niu']))){
   $id = $_POST['niu'];
   $nombre = $_POST['nombreProfesor'];
-  $apellido1 = $_POST['apellido1Profesor'];
-  $apellido2 = $_POST['apellido2Profesor'];
+  $apellido1 = $_POST['apellidoProfesor'];
 
 
   unset($_POST['niu']);
   unset($_POST['nombreProfesor']);
-  unset($_POST['apellido1Profesor']);
-  unset($_POST['apellido2Profesor']);
+  unset($_POST['apellidoProfesor']);
 
-  $error = addProfesor(conexionBD(), $id, $nombre, $apellido1, $apellido2);
+  $error = addProfesor(conexionBD(), $id, $nombre, $apellido);
 
   if($error === false){
     include_once 'controllers/portada.php';

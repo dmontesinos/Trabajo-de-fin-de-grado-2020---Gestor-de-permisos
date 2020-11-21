@@ -18,11 +18,7 @@
           </div>
           <div class="col">
             <h5>Primer Cognom</h5>
-            <input id="apellido1Profesor" type="text" class="form-control" placeholder="Primer Cognom" name="apellido1Profesor" value="<?php echo $profesor['apellido1'];?>">
-          </div>
-          <div class="col">
-            <h5>Segon Cognom</h5>
-            <input id="apellido2Profesor" type="text" class="form-control" placeholder="Segon Cognom" name="apellido2Profesor" value="<?php echo $profesor['apellido2'];?>">
+            <input id="apellidosProfesor" type="text" class="form-control" placeholder="Cognoms" name="apellidosProfesor" value="<?php echo $profesor['apellidos'];?>">
           </div>
         </div>
         <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarProfesor()" id="editProfesor"></input>
