@@ -3,6 +3,7 @@ include "models/conexionBD.php";
 include "models/Profesores/consultarProfesores.php";
 include "models/Departamentos/consultarProfesoresDepartamento.php";
 include "models/Departamentos/delProfesoresDepartamento.php";
+include "models/Departamentos/consultarDepartamento.php";
 
 
 
@@ -53,6 +54,7 @@ if(isset($_POST['profesores']) && !empty($_POST['profesores'])){
       array_push($listaProfDept, $profesorEnDepartamento["Profesores_niu"]);
     }
 
+    $nombreDepartamento = consultarDepartamento(conexionBD(), $_POST['id']);
     $lista = consultarProfesores(conexionBD());
     include "views/Departamentos/asignarProfesorDepartamento.php";
   } else {

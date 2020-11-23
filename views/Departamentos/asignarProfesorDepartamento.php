@@ -1,17 +1,16 @@
 <link rel="stylesheet" href="css/choices.min.css">
 <script src="js/choices.min.js"></script>
-<!--link rel="stylesheet" href="css/bootstrap.min.css"-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<!--script src="js/bootstrap.bundle.min.js"></script-->
 
 
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-    <h2 class="h3 mb-0 text-gray-800">Afegir professors al departament: </h2>
-    <h3><?php echo $_POST["id"]?></h3>
+    <h2 class="h3 mb-0 text-gray-800">Afegir professors al departament</h2>
   </div>
 
   <div class="card-body">
+    <h4><?php echo $nombreDepartamento[0]["nombre"]?></h4>
     <form action="index.php?accion=asignarProfesorDepartamento&idDept=<?php echo $_POST["id"]?>" method="post">
       <select name="profesores[]" id="choices-multiple-remove-button" placeholder="Selecciona als professors" multiple>
         <?php foreach ($lista as $profesor):
