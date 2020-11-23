@@ -279,4 +279,20 @@ function eliminarDepartamento (id_departamento) {
         });
     });
 }
+
+function mostrarAsignarDepartamento (id_departamento) {
+    $(document).ready(function(){
+        $('#botonAsignarProfesorDepartamento-'+id_departamento).click (function () {
+            $.ajax({
+                url: 'index.php?accion=asignarProfesorDepartamento',
+                data: {id: id_departamento},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Carga satisfactoria de asignar profesores a departamento.');
+        });
+    });
+}
 // FIN DEPARTAMENTOS

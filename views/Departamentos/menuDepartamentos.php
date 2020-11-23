@@ -36,11 +36,16 @@
                       <span class="text">Detalls</span>
                     </button>
                     <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+
+                      <a id="botonAsignarProfesorDepartamento-<?php echo $departamento['idDepartamentos'];?>" class="dropdown-item" href="#">Assignar professors</a>
+                      <div class="dropdown-divider"></div>
+
                       <a id="botonEditarDepartamento-<?php echo $departamento['idDepartamentos'];?>" class="dropdown-item" href="#">Modificar</a>
                       <div class="dropdown-divider"></div>
                       <a id="botonBorrarDepartamento-<?php echo $departamento['idDepartamentos'];?>" class="dropdown-item" href="#">Eliminar</a>
                       <script>eliminarDepartamento(<?php echo $departamento['idDepartamentos'];?>)</script>
                       <script>mostrarModificarDepartamento(<?php echo $departamento['idDepartamentos'];?>)</script>
+                      <script>mostrarAsignarDepartamento(<?php echo $departamento['idDepartamentos'];?>)</script>
                     </div>
                   </div>
                 </td>

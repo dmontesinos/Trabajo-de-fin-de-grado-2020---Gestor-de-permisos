@@ -95,6 +95,9 @@ switch ($accion) {
     case 'delDepartamento':
         require __DIR__.'/controllers/Departamentos/delDepartamento.php';
         break;
+    case 'asignarProfesorDepartamento':
+        require __DIR__.'/controllers/Departamentos/asignarProfesorDepartamento.php';
+        break;
 
 
     default:
