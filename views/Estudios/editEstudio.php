@@ -26,35 +26,28 @@
           </div>
           <div class="col">
             <h5>Actiu</h5>
+            <select class="custom-select" name="activo" id="activo">
             <?php
-              if($estudio['activo']){
-                echo '<input type="radio" id="activo" name="activo" value="1" checked>';
-                echo '<label for="activo">Si</label><br>';
-                echo '<input type="radio" id="activo" name="activo" value="0">';
-                echo '<label for="activo">No</label><br>';
-              } else {
-                echo '<input type="radio" id="activo" name="activo" value="1">';
-                echo '<label for="activo">Si</label><br>';
-                echo '<input type="radio" id="activo" name="activo" value="0" checked>';
-                echo '<label for="activo">No</label><br>';
-              }
-             ?>
+              if($estudio['activo']){ ?>
+                <option value="1" selected>Si</option>
+                <option value="0">No</option>
+              <?php } else { ?>
+                <option value="1">Si</option>
+                <option value="0" selected>No</option>
+              <?php } ?>
+           </select>
           </div>
           <div class="col">
             <h5>Tipus</h5>
+            <select class="custom-select" name="tipo" id="tipo">
             <?php
-              if($estudio['tipo'] == "Grau"){
-                echo '<input type="radio" id="tipo" name="tipo" value="Grau" checked>';
-                echo '<label for="tipo">Grau</label><br>';
-                echo '<input type="radio" id="tipo" name="tipo" value="Màster">';
-                echo '<label for="tipo">Màster</label><br>';
-              } else {
-                echo '<input type="radio" id="tipo" name="tipo" value="Grau">';
-                echo '<label for="tipo">Grau</label><br>';
-                echo '<input type="radio" id="tipo" name="tipo" value="Màster" checked>';
-                echo '<label for="tipo">Màster</label><br>';
-              }
-             ?>
+              if($estudio['tipo'] == "Grau"){?>
+                <option value="Grau" selected>Grau</option>
+                <option value="Màster">Màster</option
+              <?php } else { ?>
+                <option value="Grau">Grau</option>
+                <option value="Màster" selected>Màster</option
+              <?php } ?>
           </div>
         </div>
         <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarEstudio()" id="editEstudio"></input>
