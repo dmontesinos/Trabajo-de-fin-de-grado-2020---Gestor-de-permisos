@@ -27,7 +27,7 @@
 	            <tr>
   		          <td><?php echo $profesor['niu'];?></td>
   		          <td><?php echo $profesor['nombre'];?></td>
-                <td><?php echo $profesor['apellidos'];?></td>
+                <td><?php echo $profesor['apellido'];?></td>
                 <td >
                   <div class="dropdown mb-0" style="text-align: center;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

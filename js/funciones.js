@@ -68,6 +68,16 @@ function mostrarMenuDepartamentos() {
         });
     });
 }
+
+function mostrarMenuCargos() {
+    $(document).ready(function(){
+        $('#menuCargos').click(function(){
+            $('#container-fluid').load('index.php?accion=cargos', function () {
+                console.log('Carga satisfactoria de cargos.');
+            });
+        });
+    });
+}
 // FIN MENUS
 
 // CENTROS
@@ -296,3 +306,45 @@ function mostrarAsignarDepartamento (id_departamento) {
     });
 }
 // FIN DEPARTAMENTOS
+
+// CARGOS
+function mostrarAddCargo() {
+    $(document).ready(function(){
+        $('#addCargo').click(function(){
+            $('#container-fluid').load('index.php?accion=addCargo', function () {
+                console.log('Carga satisfactoria de añadir cargo.');
+            });
+        });
+    });
+}
+
+function mostrarModificarCargo (id_cargo) {
+    $(document).ready(function(){
+        $('#botonEditarCargo-'+id_cargo).click (function () {
+            $.ajax({
+                url: 'index.php?accion=editCargo',
+                data: {id: id_cargo},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+        });
+    });
+}
+function eliminarCargo (id_cargo) {
+    $(document).ready(function(){
+        $('#botonBorrarCargo-'+id_cargo).click (function () {
+            $.ajax({
+                url: 'index.php?accion=delCargo',
+                data: {id: id_cargo},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Cargo borrado correctamente.');
+        });
+    });
+}
+// FIN CARGOS

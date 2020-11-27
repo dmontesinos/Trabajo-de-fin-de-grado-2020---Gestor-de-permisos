@@ -126,7 +126,7 @@ if (isset($_POST["import"])) {
 
 
             if(empty($consultaExiste)){
-              $consulta = $conexion->prepare('INSERT INTO Profesores (niu, nombre, apellidos) VALUES (:niu, :nombre, :apellidos)');
+              $consulta = $conexion->prepare('INSERT INTO Profesores (niu, nombre, apellido) VALUES (:niu, :nombre, :apellidos)');
               $parametros = [
                 'niu' => $spreadSheetAry[$i][27],
                 'nombre' => $profesor[1],

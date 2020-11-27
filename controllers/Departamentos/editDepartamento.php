@@ -2,7 +2,6 @@
 require_once ("models/conexionBD.php");
 require_once("models/Departamentos/editDepartamento.php");
 
-//print_r($_POST);
 
 if(isset($_POST['idDepartamentos']) && (!empty($_POST['idDepartamentos']))){
   $id = $_POST['idDepartamentos'];

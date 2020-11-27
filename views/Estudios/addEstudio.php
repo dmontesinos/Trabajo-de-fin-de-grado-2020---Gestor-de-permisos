@@ -19,10 +19,18 @@
           <input id="idCentro" type="text" class="form-control" placeholder="Centre" name="idCentro">
         </div>
         <div class="col">
-          <input id="activo" type="text" class="form-control" placeholder="Actiu" name="activo">
+          <select class="custom-select" name="activo" id="activo">
+            <option value="1" selected>Si</option>
+            <option value="0">No</option>
+          </select>
+          <!--input id="activo" type="text" class="form-control" placeholder="Actiu" name="activo"-->
         </div>
         <div class="col">
-          <input id="tipo" type="text" class="form-control" placeholder="Tipus" name="tipo">
+          <select class="custom-select" name="tipo" id="tipo">
+            <option value="Grau" selected>Grau</option>
+            <option value="Màster">Màster</option>
+          </select>
+          <!--input id="tipo" type="text" class="form-control" placeholder="Tipus" name="tipo"-->
         </div>
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addEstudio">Enviar</button>

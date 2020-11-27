@@ -114,6 +114,7 @@
   <script>mostrarMenuProfesores()</script>
   <script>mostrarMenuGrupos()</script>
   <script>mostrarMenuDepartamentos()</script>
+  <script>mostrarMenuCargos()</script>
 
 
 </body>

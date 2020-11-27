@@ -60,7 +60,16 @@ if(isset($_POST['profesores']) && !empty($_POST['profesores'])){
   } else {
     if(isset($_GET['idDept'])){
       delProfesoresDepartamento(conexionBD(), $_GET['idDept']);
-      header('Location: index.php?accion=asignarProfesorDepartamento');
+      //header('Location: index.php?accion=asignarProfesorDepartamento');
+      include_once 'controllers/portada.php';
+      echo '<script type="text/javascript">',
+      '$(document).ready(function(){',
+          '$("#container-fluid").load("index.php?accion=departamentos", function () {',
+              'alert("S\'han eliminat totes les assignacions del grup.");',
+          '});',
+      '});',
+       '</script>';
+
     } else {
       include_once 'controllers/portada.php';
     }

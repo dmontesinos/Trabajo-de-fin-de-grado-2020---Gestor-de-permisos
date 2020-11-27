@@ -99,6 +99,19 @@ switch ($accion) {
         require __DIR__.'/controllers/Departamentos/asignarProfesorDepartamento.php';
         break;
 
+    // Gestión de cargos
+    case 'cargos':
+        require __DIR__.'/controllers/Cargos/cargos.php';
+        break;
+    case 'addCargo':
+        require __DIR__.'/controllers/Cargos/addCargo.php';
+        break;
+    case 'editCargo':
+        require __DIR__.'/controllers/Cargos/editCargo.php';
+        break;
+    case 'delCargo':
+        require __DIR__.'/controllers/Cargos/delCargo.php';
+        break;
 
     default:
         require __DIR__ .'/controllers/portada.php';

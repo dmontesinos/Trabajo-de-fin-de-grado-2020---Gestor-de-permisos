@@ -15,9 +15,9 @@
       <select name="profesores[]" id="choices-multiple-remove-button" placeholder="Selecciona als professors" multiple>
         <?php foreach ($lista as $profesor):
           if(in_array($profesor["niu"], $listaProfDept)){?>
-            <option value="<?php echo $profesor["niu"]?>" selected><?php echo $profesor["niu"]." - ".$profesor["nombre"]." ".$profesor["apellidos"]; ?></option>
+            <option value="<?php echo $profesor["niu"]?>" selected><?php echo $profesor["niu"]." - ".$profesor["nombre"]." ".$profesor["apellido"]; ?></option>
           <?php } else { ?>
-            <option value="<?php echo $profesor["niu"]?>"><?php echo $profesor["niu"]." - ".$profesor["nombre"]." ".$profesor["apellidos"]; ?></option>
+            <option value="<?php echo $profesor["niu"]?>"><?php echo $profesor["niu"]." - ".$profesor["nombre"]." ".$profesor["apellido"]; ?></option>
           <?php } ?>
         <?php endforeach; ?>
         </select>
