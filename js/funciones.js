@@ -348,3 +348,27 @@ function eliminarCargo (id_cargo) {
     });
 }
 // FIN CARGOS
+
+// GRUPOS
+function obtenerEstudios(valor){
+  $.ajax ({
+    type: "POST",
+    url: "listaDependiente/get_estudio.php",
+    data:'id_centro='+valor,
+    success: function(data) {
+       $("#lista_estudios").html(data);
+    }
+  });
+}
+
+function obtenerAsignaturas(valor){
+  $.ajax({
+   type: "POST",
+   url: "listaDependiente/get_asignatura.php",
+   data:'id_estudio='+valor,
+   success: function(data){
+      $("#lista_asignaturas").html(data);
+   }
+  });
+}
+// FIN GRUPOS
