@@ -2,9 +2,7 @@
 function consultarEstudios($conexion) {
     try{
         $consultar_estudios = $conexion->prepare("SELECT * FROM estudios");
-        /*$parametros = [
-            'idUsuario' => $_SESSION['id'],
-        ];*/
+
         $consultar_estudios->execute();
         $consultar_estudios = $consultar_estudios->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e){

@@ -116,6 +116,21 @@ switch ($accion) {
         require __DIR__.'/controllers/Cargos/asignarProfesorCargo.php';
         break;
 
+
+    // Gestión de objetos
+    case 'objetos':
+        require __DIR__.'/controllers/Objetos/objetos.php';
+        break;
+    case 'addObjeto':
+        require __DIR__.'/controllers/Objetos/addObjeto.php';
+        break;
+    case 'editObjeto':
+        require __DIR__.'/controllers/Objetos/editObjeto.php';
+        break;
+    case 'delObjeto':
+        require __DIR__.'/controllers/Objetos/delObjeto.php';
+        break;
+
     default:
         require __DIR__ .'/controllers/portada.php';
         break;

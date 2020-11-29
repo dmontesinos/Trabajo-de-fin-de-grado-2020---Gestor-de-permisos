@@ -78,6 +78,16 @@ function mostrarMenuCargos() {
         });
     });
 }
+
+function mostrarMenuObjetos() {
+    $(document).ready(function(){
+        $('#menuObjetos').click(function(){
+            $('#container-fluid').load('index.php?accion=objetos', function () {
+                console.log('Carga satisfactoria de objetos.');
+            });
+        });
+    });
+}
 // FIN MENUS
 
 // CENTROS
@@ -389,3 +399,46 @@ function obtenerAsignaturas(valor){
   });
 }
 // FIN GRUPOS
+
+// OBJETOS
+function mostrarAddObjeto() {
+    $(document).ready(function(){
+        $('#addObjeto').click(function(){
+            $('#container-fluid').load('index.php?accion=addObjeto', function () {
+                console.log('Carga satisfactoria de añadir objeto.');
+            });
+        });
+    });
+}
+
+function eliminarObjeto (id_objeto) {
+    $(document).ready(function(){
+        $('#botonBorrarObjeto-'+id_objeto).click (function () {
+            $.ajax({
+                url: 'index.php?accion=delObjeto',
+                data: {id: id_objeto},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Objeto borrado correctamente.');
+        });
+    });
+}
+
+function mostrarModificarObjeto (id_objeto) {
+    $(document).ready(function(){
+        $('#botonEditarObjeto-'+id_objeto).click (function () {
+            $.ajax({
+                url: 'index.php?accion=editObjeto',
+                data: {id: id_objeto},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+        });
+    });
+}
+// FIN OBJETOS

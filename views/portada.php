@@ -115,6 +115,7 @@
   <script>mostrarMenuGrupos()</script>
   <script>mostrarMenuDepartamentos()</script>
   <script>mostrarMenuCargos()</script>
+  <script>mostrarMenuObjetos()</script>
 
 
 </body>
