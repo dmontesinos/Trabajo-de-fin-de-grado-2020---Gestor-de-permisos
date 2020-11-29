@@ -16,8 +16,8 @@
             <tr>
               <th>ID</th>
               <th>Nom</th>
-              <th>Ambitos_idAmbitos</th>
-              <th>idEnAmbito</th>
+              <th>Àmbit</th><!--Ambitos_idAmbitos-->
+              <th>idConcret</th><!-- idEnAmbito -->
               <th style="width:10%">Opcions</th>
 
             </tr>
@@ -63,11 +63,14 @@
                       <span class="text">Detalls</span>
                     </button>
                     <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                      <a id="botonAsignarProfesorCargo-<?php echo $cargo['idCargos'];?>" class="dropdown-item" href="#">Assignar professors</a>
+                      <div class="dropdown-divider"></div>
                       <a id="botonEditarCargo-<?php echo $cargo['idCargos'];?>" class="dropdown-item" href="#">Modificar</a>
                       <div class="dropdown-divider"></div>
                       <a id="botonBorrarCargo-<?php echo $cargo['idCargos'];?>" class="dropdown-item" href="#">Eliminar</a>
                       <script>eliminarCargo(<?php echo $cargo['idCargos'];?>)</script>
                       <script>mostrarModificarCargo(<?php echo $cargo['idCargos'];?>)</script>
+                      <script>mostrarAsignarCargo(<?php echo $cargo['idCargos'];?>)</script>
                     </div>
                   </div>
                 </td>

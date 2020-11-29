@@ -347,6 +347,23 @@ function eliminarCargo (id_cargo) {
         });
     });
 }
+
+function mostrarAsignarCargo (id_cargo) {
+    $(document).ready(function(){
+        $('#botonAsignarProfesorCargo-'+id_cargo).click (function () {
+            $.ajax({
+                url: 'index.php?accion=asignarProfesorCargo',
+                data: {id: id_cargo},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Carga satisfactoria de asignar profesores a cargo.');
+        });
+    });
+}
+
 // FIN CARGOS
 
 // GRUPOS

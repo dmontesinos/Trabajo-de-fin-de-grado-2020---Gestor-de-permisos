@@ -112,6 +112,9 @@ switch ($accion) {
     case 'delCargo':
         require __DIR__.'/controllers/Cargos/delCargo.php';
         break;
+    case 'asignarProfesorCargo':
+        require __DIR__.'/controllers/Cargos/asignarProfesorCargo.php';
+        break;
 
     default:
         require __DIR__ .'/controllers/portada.php';
