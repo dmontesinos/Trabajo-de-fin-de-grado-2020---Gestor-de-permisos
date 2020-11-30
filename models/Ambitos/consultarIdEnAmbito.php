@@ -1,11 +1,34 @@
 <?php
-function consultarAmbito($conexion, $id, $ambito) {
+function consultarIdEnAmbito($conexion, $idTupla, $idAmbito) {
   try{
 
-    $consulta = $conexion->prepare('SELECT * FROM :ambito WHERE idAmbitos = :id');
+    /*
+    Comprobación del nombre de la PK en función del ámbito.
+    */
+    $consultaNombreIdTabla = $conexion->prepare('SELECT * FROM Ambitos WHERE idAmbitos = :ambito');
     $parametros = [
-      'ambito' => $ambito,
-      'id' => $id,
+      'ambito' => $idAmbito,
+    ];
+
+    $consultaNombreIdTabla->execute($parametros);
+    $consultaNombreIdTabla = $consultaNombreIdTabla->fetchAll(PDO::FETCH_ASSOC);
+
+    //return($consultaNombreIdTabla);
+    $nombrePKTabla = $consultaNombreIdTabla[0]['tabla']; //Nombre del PK de la tabla
+    $nombreAmbito = $consultaNombreIdTabla[0]['nombre'];
+
+    /*
+    Consultar el item concreto de la tabla(ambito) concreto.
+    */
+    /*echo "ID TUPLA: ".$idTupla."</br>";
+    echo "NOMBRE AMBITO: ".$nombreAmbito."</br>";
+    echo "Nombre PK Tabla: ".$nombrePKTabla."</br>";*/
+
+    $consulta = $conexion->prepare("SELECT * FROM ".$nombreAmbito." WHERE ".$nombrePKTabla." = ".$idTupla);
+    $parametros = [
+      'idTupla' => $idTupla,
+      'ambito' => $nombreAmbito,
+      'nombrePKTabla' => $nombrePKTabla,
     ];
 
     $consulta->execute($parametros);

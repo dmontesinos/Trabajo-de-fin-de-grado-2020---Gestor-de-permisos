@@ -17,7 +17,7 @@
               <th>ID</th>
               <th>Nom</th>
               <th>Àmbit</th><!--Ambitos_idAmbitos-->
-              <th>idConcret</th><!-- idEnAmbito -->
+              <th>Element</th><!-- idEnAmbito -->
               <th style="width:10%">Opcions</th>
 
             </tr>
@@ -52,7 +52,18 @@
                   ¿Utilizar DESCRIBE en SQL para identificar el nombre de la id de la tabla?
                   -->
                   <?php
-                  echo $cargo['idEnAmbito'];
+                  //echo $cargo['idEnAmbito'];
+                  if($nombreAmbito[0]['nombre'] == "Profesores"){
+                    $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
+                    echo ($elemento[0]['apellido'].", ".$elemento[0]['nombre']);
+                  } elseif ($nombreAmbito[0]['nombre'] == "Grupo") {
+                    $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
+                    echo $elemento[0]['idGrupo'];
+                  } else {
+                    $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
+                    echo $elemento[0]['nombre'];
+                  }
+
                   ?>
                 </td>
 
