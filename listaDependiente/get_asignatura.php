@@ -2,7 +2,6 @@
 
 include 'config.php';
 
-//pasamos id del país
 if(!empty($_POST["id_estudio"]))
 {
    $sql ="SELECT a.idAsignaturas, a.nombre FROM Asignaturas as a
@@ -16,7 +15,6 @@ if(!empty($_POST["id_estudio"]))
 
  	 $consulta_asignaturas = $link->query($sql);
 
-   //construimos lista nueva dependiente
    ?>
      <option value="">Seleccionar assignatura</option>
    <?php

@@ -207,11 +207,13 @@ if (isset($_POST["import"])) {
                             ON a.idAsignaturas = ga.Asignaturas_idAsignaturas
                             INNER JOIN Grupo AS g
                             ON g.idGrupo = ga.Grupo_idGrupo
-                            WHERE a.idAsignaturas = :idAsignaturas');
+                            WHERE ga.Asignaturas_idAsignaturas = :idAsignaturas
+                            AND ga.Grupo_idGrupo = :idGrupo');
 
 
           $parametrosExiste = [
             'idAsignaturas' => $spreadSheetAry[$i][0],
+            'idGrupo' => $spreadSheetAry[$i][3],
           ];
           $consultaExiste->execute($parametrosExiste);
           $consultaExiste = $consultaExiste->fetchAll(PDO::FETCH_ASSOC);

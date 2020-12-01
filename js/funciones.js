@@ -398,6 +398,17 @@ function obtenerAsignaturas(valor){
    }
   });
 }
+
+function obtenerGrupos(valor){
+  $.ajax({
+   type: "POST",
+   url: "listaDependiente/get_grupos.php",
+   data:'id_asignatura='+valor,
+   success: function(data){
+      $("#lista_grupos").html(data);
+   }
+  });
+}
 // FIN GRUPOS
 
 // OBJETOS

@@ -17,7 +17,7 @@
   </div>
 
   <div class="card-body">
-    <form action="index.php?accion=XXXXXXXXXXXXXXXXXXXXXXXX" method="post">
+    <!--form action="index.php?accion=XXXXXXXXXXXXXXXXXXXXXXXX" method="post"-->
       <div class="row">
         <div class="col">
           <h5>Centre</h5>
@@ -45,7 +45,7 @@
         </div>
         <div class="col">
           <h5>Assignatura</h5>
-          <select name="asignatura" id="lista_asignaturas" class="custom-select">
+          <select name="asignatura" id="lista_asignaturas" class="custom-select" onChange="obtenerGrupos(this.value)";>
   					<option value=''>Seleccionar assignatura</option>
   						<?php
   							while($row= $consulta_asignaturas->fetch_object())
@@ -56,7 +56,14 @@
   				</select>
         </div>
       </div>
-      <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarProfesor()" id="editProfesor"></input>
-    </form>
+      <div class="row">
+        <hr/>
+        <div class="col" id="lista_grupos">
+        </div>
+      </div>
+
+
+      <!--input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarProfesor()" id="editProfesor"></input-->
+    <!--/form-->
   </div>
 </div>
