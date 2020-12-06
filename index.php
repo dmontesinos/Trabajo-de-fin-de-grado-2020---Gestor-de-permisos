@@ -130,6 +130,9 @@ switch ($accion) {
     case 'delObjeto':
         require __DIR__.'/controllers/Objetos/delObjeto.php';
         break;
+    case 'asignarPermisosObjeto':
+        require __DIR__.'/controllers/Objetos/asignarPermisos.php';
+        break;
 
     default:
         require __DIR__ .'/controllers/portada.php';

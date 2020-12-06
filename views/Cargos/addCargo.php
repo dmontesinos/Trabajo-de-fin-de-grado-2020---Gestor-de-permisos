@@ -1,6 +1,6 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Afegir un nou càrrec</h1>
+    <h1 class="h3 mb-0 text-gray-800">Modificar permissos</h1>
   </div>
 
   <div class="card-body">
@@ -12,7 +12,9 @@
         <div class="col">
           <select class="custom-select" name="Ambitos_idAmbitos" id="Ambitos_idAmbitos">
             <?php foreach ($ambitos as $ambito): ?>
-              <option value="<?php echo $ambito['idAmbitos']; ?>"><?php echo $ambito['nombre']; ?></option>
+              <?php if($ambito['asignable'] == 1) { ?>
+                <option value="<?php echo $ambito['idAmbitos']; ?>"><?php echo $ambito['nombre']; ?></option>
+              <?php } ?>
             <?php endforeach; ?>
           </select>
         </div>

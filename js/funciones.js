@@ -452,4 +452,43 @@ function mostrarModificarObjeto (id_objeto) {
         });
     });
 }
+
+function mostrarAsignarPermisosObjeto (id_objeto) {
+    $(document).ready(function(){
+        $('#botonAsignarPermisosObjeto-'+id_objeto).click (function () {
+            $.ajax({
+                url: 'index.php?accion=asignarPermisosObjeto',
+                data: {id: id_objeto},
+                type: 'post',
+                success: function(output) {
+                    $('#container-fluid').html(output);
+                }
+            });
+            console.log('Carga satisfactoria de asignar permisos a objeto.');
+        });
+    });
+}
+
+function submitPermisosObjeto () {
+    $(document).ready(function(){
+      $.ajax({
+          url: 'prueba.php',
+          data:$('#submitPermisosObjeto').serialize(),
+          type: 'post',
+          success: function(output) {
+              $('#container-fluid').html(output);
+          }
+      });
+      console.log('Carga satisfactoria de asignar permisos a objeto.');
+    });
+}
+
+/*function submitPermisosObjeto()
+{
+
+$.ajax({type:'POST', url: 'prueba.php', data:$('#submitPermisosObjeto').serialize(), success: function(response) {
+    alert(response); //success or fail from email.php page
+}});
+
+}*/
 // FIN OBJETOS

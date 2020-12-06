@@ -32,11 +32,14 @@
                       <span class="text">Detalls</span>
                     </button>
                     <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                      <a id="botonAsignarPermisosObjeto-<?php echo $objeto['idObjeto'];?>" class="dropdown-item" href="#">Assignar permisos</a>
+                      <div class="dropdown-divider"></div>
                       <a id="botonEditarObjeto-<?php echo $objeto['idObjeto'];?>" class="dropdown-item" href="#">Modificar</a>
                       <div class="dropdown-divider"></div>
                       <a id="botonBorrarObjeto-<?php echo $objeto['idObjeto'];?>" class="dropdown-item" href="#">Eliminar</a>
                       <script>eliminarObjeto(<?php echo $objeto['idObjeto'];?>)</script>
                       <script>mostrarModificarObjeto(<?php echo $objeto['idObjeto'];?>)</script>
+                      <script>mostrarAsignarPermisosObjeto(<?php echo $objeto['idObjeto'];?>)</script>
                     </div>
                   </div>
                 </td>
