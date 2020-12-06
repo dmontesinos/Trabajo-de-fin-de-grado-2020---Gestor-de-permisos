@@ -9,7 +9,14 @@ include "models\Objetos\consultarObjeto.php";
 
 
 
-if(isset($_POST['XXX']) && !empty($_POST['XXX'])){
+if(isset($_POST['dataTablePermisosObjetos_length']) && !empty($_POST['dataTablePermisosObjetos_length'])){
+  echo '<script type="text/javascript">',
+  '$(document).ready(function(){',
+      '$("#container-fluid").load("index.php", function () {',
+          'alert("SUCCESSFUL!");',
+      '});',
+  '});',
+  '</script>';
 
   /*include "models/Departamentos/addProfesorDepartamento.php";
 
@@ -44,12 +51,15 @@ if(isset($_POST['XXX']) && !empty($_POST['XXX'])){
   unset($_POST["profesores"]);*/
 } else {
   if(isset($_POST['id']) && !empty($_POST['id'])) {
-    //echo $_POST['id'];
+    include "models/Objetos/consultarPermisosObjetoPorAmbito.php";
 
     $objeto = consultarObjeto(conexionBD(), $_POST['id']);
     $listaAmbitos = consultarAmbitos(conexionBD());
 
     include "views/Objetos/asignarPermisosObjeto.php";
+
+
+
 
     /*$listaAmbitos = consultarObjetosEnAmbito(conexionBD(), $_POST['id']);
 

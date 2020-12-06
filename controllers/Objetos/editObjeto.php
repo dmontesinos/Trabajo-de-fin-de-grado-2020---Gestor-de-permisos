@@ -6,12 +6,14 @@ require_once("models/Objetos/editObjeto.php");
 if(isset($_POST['idObjeto']) && (!empty($_POST['idObjeto']))){
   $id = $_POST['idObjeto'];
   $nombre = $_POST['nombreObjeto'];
+  $descripcion = $_POST['descripcionObjeto'];
 
   unset($_POST['idObjeto']);
   unset($_POST['nombreObjeto']);
+  unset($_POST['descripcionObjeto']);
 
 
-  $error = editarObjeto(conexionBD(), $id, $nombre);
+  $error = editarObjeto(conexionBD(), $id, $nombre, $descripcion);
 
   if($error === false){
     include_once 'controllers/portada.php';

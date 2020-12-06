@@ -16,8 +16,12 @@
             <h5>Nom</h5>
             <input id="nombreObjeto" type="text" class="form-control" placeholder="Nom" name="nombreObjeto" value="<?php echo $objeto['nombre'];?>">
           </div>
+          <div class="col">
+            <h5>Descripció</h5>
+            <input id="descripcionObjeto" type="text" class="form-control" placeholder="Descripció" name="descripcionObjeto" value="<?php echo $objeto['descripcion'];?>">
+          </div>
         </div>
-        <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editObjeto()" id="editObjeto"></input>
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px" onclick="editObjeto()" id="editObjeto"></input>
       </form>
     </div>
   </div>

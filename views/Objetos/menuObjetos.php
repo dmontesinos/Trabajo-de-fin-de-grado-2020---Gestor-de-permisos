@@ -16,6 +16,7 @@
             <tr>
               <th>ID</th>
               <th>Nom</th>
+              <th>Descripció</th>
               <th style="width:10%">Opcions</th>
             </tr>
       	</thead>
@@ -24,6 +25,7 @@
 	            <tr>
   		          <td><?php echo $objeto['idObjeto'];?></td>
   		          <td><?php echo $objeto['nombre'];?></td>
+  		          <td><?php echo $objeto['descripcion'];?></td>
 
                 <td>
                   <div class="dropdown mb-0" style="text-align: center;">

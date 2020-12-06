@@ -1,16 +1,34 @@
 <?php
 require_once "models/conexionBD.php";
 require_once "models/Objetos/addObjeto.php";
+require_once "models/Objetos/asignarPermisosObjeto.php";
+require_once "models\Ambitos\consultarAmbitos.php";
+require_once "models/Objetos/consultarObjetoPorNombre.php";
 
 
 if(isset($_POST['nombreObjeto']) && (!empty($_POST['nombreObjeto']))){
-  //$id = $_POST['idObjeto'];
+  
   $nombre = $_POST['nombreObjeto'];
+  $descripcion = $_POST['descripcionObjeto'];
 
-  //unset($_POST['idObjeto']);
+  
   unset($_POST['nombreObjeto']);
+  unset($_POST['descripcionObjeto']);
 
-  $error = addObjeto(conexionBD(), $nombre);
+
+  $error = addObjeto(conexionBD(), $nombre, $descripcion);
+
+  //Creación de los permisos por defecto
+  $objeto = consultarObjetoPorNombre(conexionBD(), $nombre);
+  $ambitos = consultarAmbitos(conexionBD());
+
+
+  foreach ($ambitos as $ambito) {
+    if($ambito['asignable']){
+      asignarPermisosObjeto(conexionBD(), "ninguno", $objeto[0]['idObjeto'], $ambito['idAmbitos']);
+    }
+  }
+
 
   if($error === false){
     include_once 'controllers/portada.php';

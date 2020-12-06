@@ -9,6 +9,9 @@
         <div class="col">
           <input id="nombreObjeto" type="text" class="form-control" placeholder="Nom" name="nombreObjeto">
         </div>
+        <div class="col">
+          <input id="descripcionObjeto" type="text" class="form-control" placeholder="Descripció" name="descripcionObjeto">
+        </div>
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addObjeto">Enviar</button>
     </form>

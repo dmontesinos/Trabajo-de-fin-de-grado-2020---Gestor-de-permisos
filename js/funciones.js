@@ -472,7 +472,7 @@ function mostrarAsignarPermisosObjeto (id_objeto) {
 function submitPermisosObjeto () {
     $(document).ready(function(){
       $.ajax({
-          url: 'prueba.php',
+          url: 'controllers/Objetos/asignarPermisos.php',
           data:$('#submitPermisosObjeto').serialize(),
           type: 'post',
           success: function(output) {
