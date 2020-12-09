@@ -469,11 +469,11 @@ function mostrarAsignarPermisosObjeto (id_objeto) {
     });
 }
 
-function submitPermisosObjeto () {
+function submitPermisosObjeto (id_objeto) {
     $(document).ready(function(){
       $.ajax({
-          url: 'controllers/Objetos/asignarPermisos.php',
-          data:$('#submitPermisosObjeto').serialize(),
+          url: 'index.php?accion=asignarPermisosObjeto',
+          data:  $('#submitPermisosObjeto').serialize()+"&idObjeto="+id_objeto,
           type: 'post',
           success: function(output) {
               $('#container-fluid').html(output);
@@ -483,12 +483,4 @@ function submitPermisosObjeto () {
     });
 }
 
-/*function submitPermisosObjeto()
-{
-
-$.ajax({type:'POST', url: 'prueba.php', data:$('#submitPermisosObjeto').serialize(), success: function(response) {
-    alert(response); //success or fail from email.php page
-}});
-
-}*/
 // FIN OBJETOS

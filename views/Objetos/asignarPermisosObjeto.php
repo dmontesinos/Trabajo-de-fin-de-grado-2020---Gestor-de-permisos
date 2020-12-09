@@ -47,7 +47,7 @@
           <?php endforeach; ?>
         </tbody>
       </table>
-        <input type="button" name="submit" value="Guardar canvis" class="btn btn-success" onclick="submitPermisosObjeto()">
+        <input type="button" name="submit" value="Guardar canvis" class="btn btn-success" onclick="submitPermisosObjeto(<?php echo $_POST['id']; ?>)">
       </form>
   </div>
 </div>
