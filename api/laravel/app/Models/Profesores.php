@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Profesores extends Model
 {
     use HasFactory;
+    protected $primaryKey = "niu";
 }
+

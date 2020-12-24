@@ -22,4 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Route::apiResource("profesores", "ProfesoresController");
 
-Route::get('profesores', [ProfesoresController::class, 'index']);
+Route::get('professors/{niu}', [ProfesoresController::class, 'profesor']);
+Route::get('professors/carrecs/{niu}', [ProfesoresController::class, 'cargos']);
+Route::get('professors/departaments/{niu}', [ProfesoresController::class, 'departamentos']);
