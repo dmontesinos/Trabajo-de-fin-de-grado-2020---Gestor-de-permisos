@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ObjetoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfesoresController;
@@ -25,3 +26,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('professors/{niu}', [ProfesoresController::class, 'profesor']);
 Route::get('professors/carrecs/{niu}', [ProfesoresController::class, 'cargos']);
 Route::get('professors/departaments/{niu}', [ProfesoresController::class, 'departamentos']);
+Route::post('objectes/afegir/', [ObjetoController::class, 'addObjeto']);
