@@ -1,0 +1,22 @@
+Laravel trabaja con un potente ORM llamado Eloquent para realizar las consultas.
+
+
+
+- GET
+# Búsqueda de un profesor concreto -> /api/professors/{niu}
+# Búsqueda de departamentos de un profesor concreto -> /api/professors/departaments/{niu}
+# Búsqueda de cargos de un profesor concreto -> /api/professors/carrecs/{niu}
+# Búsqueda de objetos por ID -> /api/objectes/cercar/id/{id}
+# Búsqueda de objetos por descripción -> /api/objectes/cercar/descripcio/{String} (%20% para espacios)
+# Búsqueda de objetos por nombre -> /api/objectes/cercar/nom/{String} (%20% para espacios)
+
+
+- POST
+# Añadir nuevo objeto a la DB -> /api/objectes/afegir
+{
+    "nom":"",
+    "descripcio":""
+}
+
+- DELETE
+# Eliminar objetos por ID -> /api/objectes/eliminar/{id}
