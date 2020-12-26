@@ -54,15 +54,30 @@ class ObjetoController extends Controller
         }
     }    
 
-
+    // Elimina un objeto en función de su ID.
     function eliminarObjeto($id){
         if($id){
             DB::table('Permisos')->where('Objeto_idObjeto', $id)->delete();
             DB::table('Objeto')->where('idObjeto', $id)->delete();
-            return["resultat"=>"Objecte amb id $id eliminar correctament."];
+            return ["resultat"=>"Objecte amb id $id eliminar correctament."];
         } else {
-            return["resultat"=>"L'objecte no s'ha pogut eliminar."];
+            return ["resultat"=>"L'objecte no s'ha pogut eliminar."];
         }
         
+    }
+
+    //Devuelve los permisos de un objeto mediante su ID.
+    function permisosObjeto($id){
+        if($id){
+            $resultado = DB::table('Permisos as p')
+            ->join("Ambitos as a", "p.Ambitos_idAmbitos", "=", "a.idAmbitos")
+            ->where("p.Objeto_idObjeto", "=", $id)
+            ->select("a.nombre as Permiso", "p.nivel as Nivel")
+            ->get();
+
+            return $resultado;
+        } else {
+            return ["resultat" => "L'objecte no s'ha trobat a la base de dades."];
+        }
     }
 }
