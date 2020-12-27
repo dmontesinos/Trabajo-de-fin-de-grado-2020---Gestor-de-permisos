@@ -36,7 +36,7 @@
             <!--input id="Ambitos_idAmbitos" type="text" class="form-control" placeholder="Ambitos_idAmbitos" name="Ambitos_idAmbitos" value="<?php echo $cargo['Ambitos_idAmbitos'];?>"-->
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarCargo()" id="editCargo"></input>
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px" onclick="editarCargo()" id="editCargo"></input>
       </form>
     </div>
   </div>

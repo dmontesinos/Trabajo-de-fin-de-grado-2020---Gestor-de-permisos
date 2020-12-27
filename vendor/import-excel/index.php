@@ -303,8 +303,10 @@ if (isset($_POST["import"])) {
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+<!--style>
 body {
+  margin: 0px auto;
+  border: thin solid red;
 	font-family: Arial;
 	width: 550px;
 }
@@ -367,20 +369,20 @@ body {
 div#response.display-block {
 	display: block;
 }
-</style>
+</style-->
 </head>
 
 <body>
-    <h2>Import Excel File into MySQL Database using PHP</h2>
+    <h2>Importació automàtica a la base de dades mitjançant fitxers Excel</h2>
 
     <div class="outer-container">
         <form action="" method="post" name="frmExcelImport"
             id="frmExcelImport" enctype="multipart/form-data">
             <div>
-                <label>Choose Excel File</label> <input type="file"
+                <label>Selecciona el fitxer Excel</label> <input type="file"
                     name="file" id="file" accept=".xls,.xlsx">
                 <button type="submit" id="submit" name="import"
-                    class="btn-submit">Import</button>
+                    class="btn-submit">Importar</button>
 
             </div>
 
@@ -389,38 +391,6 @@ div#response.display-block {
     </div>
     <div id="response"
         class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
-
-
-<?php
-$sqlSelect = "SELECT * FROM asignaturas";
-$result = $db->select($sqlSelect);
-if (! empty($result)) {
-    ?>
-
-    <table class='tutorial-table'>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-
-            </tr>
-        </thead>
-<?php
-    foreach ($result as $row) { // ($row = mysqli_fetch_array($result))
-        ?>
-        <tbody>
-            <tr>
-                <td><?php  echo $row['idAsignaturas']; ?></td>
-                <td><?php  echo $row['nombre']; ?></td>
-            </tr>
-<?php
-    }
-    ?>
-        </tbody>
-    </table>
-<?php
-}
-?>
 
 </body>
 </html>

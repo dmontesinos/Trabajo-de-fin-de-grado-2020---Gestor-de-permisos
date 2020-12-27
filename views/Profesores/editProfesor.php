@@ -17,11 +17,11 @@
             <input id="nombreProfesor" type="text" class="form-control" placeholder="Nom" name="nombreProfesor" value="<?php echo $profesor['nombre'];?>">
           </div>
           <div class="col">
-            <h5>Primer Cognom</h5>
-            <input id="apellidosProfesor" type="text" class="form-control" placeholder="Cognoms" name="apellidosProfesor" value="<?php echo $profesor['apellidos'];?>">
+            <h5>Cognoms</h5>
+            <input id="apellidosProfesor" type="text" class="form-control" placeholder="Cognoms" name="apellidosProfesor" value="<?php echo $profesor['apellido'];?>">
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarProfesor()" id="editProfesor"></input>
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px" onclick="editarProfesor()" id="editProfesor"></input>
       </form>
     </div>
   </div>

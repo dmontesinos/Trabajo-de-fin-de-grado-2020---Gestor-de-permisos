@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Trabajo de fin de grado - 2020">
+    <meta name="description" content="Trabajo de fin de grado - 2020/21">
     <meta name="author" content="Daniel Montesinos Santos">
 
 
@@ -107,7 +107,6 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Funciones personalizadas -->
-  <script>mostrarContenidoPricipal()</script>
   <script>mostrarMenuCentros()</script>
   <script>mostrarMenuAsignaturas()</script>
   <script>mostrarMenuEstudios()</script>
@@ -116,6 +115,8 @@
   <script>mostrarMenuDepartamentos()</script>
   <script>mostrarMenuCargos()</script>
   <script>mostrarMenuObjetos()</script>
+  <script>mostrarMenuImportacion()</script>
+
 
 
 </body>

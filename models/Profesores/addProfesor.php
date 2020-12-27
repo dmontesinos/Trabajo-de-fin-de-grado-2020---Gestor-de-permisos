@@ -1,12 +1,12 @@
 <?php
 function addProfesor($conexion, $id, $nombre, $apellido) {
   try{
-    $consulta = $conexion->prepare('INSERT INTO profesores(niu, nombre, apellidos) VALUES (:id, :nombre, :apellidos)');
+    $consulta = $conexion->prepare('INSERT INTO profesores(niu, nombre, apellido) VALUES (:id, :nombre, :apellido)');
 
     $parametros = [
       'id' => $id,
       'nombre' => $nombre,
-      'apellidos' => $apellidos,
+      'apellido' => $apellido,
     ];
 
     $consulta->execute($parametros);

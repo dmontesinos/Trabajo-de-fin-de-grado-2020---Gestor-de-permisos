@@ -33,7 +33,7 @@
           <!--input id="tipo" type="text" class="form-control" placeholder="Tipus" name="tipo"-->
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addEstudio">Enviar</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 10px" id="addEstudio">Enviar</button>
     </form>
   </div>
 </div>

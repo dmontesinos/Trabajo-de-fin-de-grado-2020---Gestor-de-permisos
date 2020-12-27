@@ -22,7 +22,7 @@
           <input id="idEnAmbito" type="text" class="form-control" placeholder="idEnAmbito" name="idEnAmbito">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addCargo">Enviar</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 10px" id="addCargo">Enviar</button>
     </form>
   </div>
 </div>

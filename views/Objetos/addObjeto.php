@@ -13,7 +13,7 @@
           <input id="descripcionObjeto" type="text" class="form-control" placeholder="Descripció" name="descripcionObjeto">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addObjeto">Enviar</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 10px" id="addObjeto">Enviar</button>
     </form>
   </div>
 </div>

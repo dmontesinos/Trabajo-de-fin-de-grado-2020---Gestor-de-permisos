@@ -21,7 +21,7 @@
             <input id="acroCentro" type="text" class="form-control" placeholder="Acrònim" name="acroCentro" value="<?php echo $centro['acronimo'];?>">
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarCentro()" id="editCentro"></input>
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px" onclick="editarCentro()" id="editCentro"></input>
       </form>
     </div>
   </div>

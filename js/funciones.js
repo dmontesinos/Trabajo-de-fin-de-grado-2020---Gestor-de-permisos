@@ -1,13 +1,3 @@
-function mostrarContenidoPricipal () {
-    $(document).ready(function(){
-        $('#tablero').click(function(){
-            $('#container-fluid').load('index.php?accion=tablero', function () {
-                console.log('Carga satisfactoria!');
-            });
-        });
-    });
-}
-
 // MENUS
 function mostrarMenuCentros() {
     $(document).ready(function(){
@@ -84,6 +74,16 @@ function mostrarMenuObjetos() {
         $('#menuObjetos').click(function(){
             $('#container-fluid').load('index.php?accion=objetos', function () {
                 console.log('Carga satisfactoria de objetos.');
+            });
+        });
+    });
+}
+
+function mostrarMenuImportacion() {
+    $(document).ready(function(){
+        $('#menuImportacion').click(function(){
+            $('#container-fluid').load('index.php?accion=importacion', function () {
+                console.log('Carga satisfactoria de importación.');
             });
         });
     });

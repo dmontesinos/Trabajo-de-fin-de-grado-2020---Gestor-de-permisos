@@ -16,7 +16,7 @@
           <input id="apellidosProfesor" type="text" class="form-control" placeholder="Cognoms" name="apellidosProfesor">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addProfesor">Enviar</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 10px" id="addProfesor">Enviar</button>
     </form>
   </div>
 </div>

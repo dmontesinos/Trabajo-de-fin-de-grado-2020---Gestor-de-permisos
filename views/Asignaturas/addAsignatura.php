@@ -13,7 +13,7 @@
           <input id="nombreAsignatura" type="text" class="form-control" placeholder="Nom" name="nombreAsignatura">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addAsignatura">Enviar</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 10px" id="addAsignatura">Enviar</button>
     </form>
   </div>
 </div>

@@ -6,10 +6,6 @@
 $accion = $_GET['accion'] ?? null;
 
 switch ($accion) {
-    case 'tablero':
-        require __DIR__.'/controllers/prueba.php';
-        break;
-
     // Gestión de Centros
     case 'centros':
         require __DIR__.'/controllers/Centros/centros.php';
@@ -132,6 +128,11 @@ switch ($accion) {
         break;
     case 'asignarPermisosObjeto':
         require __DIR__.'/controllers/Objetos/asignarPermisos.php';
+        break;
+
+    // Importación
+    case 'importacion':
+        require __DIR__.'/controllers/Importacion/importacion.php';
         break;
 
     default:

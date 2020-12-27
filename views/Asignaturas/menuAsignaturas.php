@@ -1,8 +1,8 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Llistat d'assignatures</h1>
-  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+  <!--a href="import-excel/index.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
     <i class="fa fa-upload"></i> Importar assignatures
-  </a>
+  </a-->
 
 
   <a href="#" class="btn btn-success btn-icon-split" style="float: right" id="addAsignatura">

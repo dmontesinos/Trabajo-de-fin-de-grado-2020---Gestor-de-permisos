@@ -16,7 +16,7 @@
           <input id="acroDepartamento" type="text" class="form-control" placeholder="Acrònim" name="acroDepartamento">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addDepartamento">Enviar</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 10px" id="addDepartamento">Enviar</button>
     </form>
   </div>
 </div>

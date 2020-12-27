@@ -16,7 +16,7 @@
           <input id="acroCentro" type="text" class="form-control" placeholder="Acrònim" name="acroCentro">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" id="addCentro">Enviar</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 10px" id="addCentro">Enviar</button>
     </form>
   </div>
 </div>

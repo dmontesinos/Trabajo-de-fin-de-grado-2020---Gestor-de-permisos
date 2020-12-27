@@ -21,7 +21,7 @@
             <input id="acroDepartamento" type="text" class="form-control" placeholder="Acrònim" name="acroDepartamento" value="<?php echo $departamento['acronimo'];?>">
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarDepartamento()" id="editDepartamento"></input>
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px" onclick="editarDepartamento()" id="editDepartamento"></input>
       </form>
     </div>
   </div>

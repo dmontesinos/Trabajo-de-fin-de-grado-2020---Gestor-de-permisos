@@ -50,7 +50,7 @@
               <?php } ?>
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarEstudio()" id="editEstudio"></input>
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px" onclick="editarEstudio()" id="editEstudio"></input>
       </form>
     </div>
   </div>

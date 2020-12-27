@@ -17,7 +17,7 @@
             <input id="nombre" type="text" class="form-control" placeholder="Nom" name="nombre" value="<?php echo $asignatura['nombre'];?>">
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarAsignatura()" id="editAsignatura"></input>
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px" onclick="editarAsignatura()" id="editAsignatura"></input>
       </form>
     </div>
   </div>

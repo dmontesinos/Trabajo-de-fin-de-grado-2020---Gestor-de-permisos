@@ -2,7 +2,7 @@
 function editarProfesor($conexion, $id, $nombre, $apellidos) {
   try{
 
-    $consulta = $conexion->prepare('UPDATE profesores SET nombre = :nombre, apellidos = :apellidos WHERE niu = :id');
+    $consulta = $conexion->prepare('UPDATE profesores SET nombre = :nombre, apellido = :apellidos WHERE niu = :id');
     $parametros = [
       'id' => $id,
       'nombre' => $nombre,
