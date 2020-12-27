@@ -5,6 +5,7 @@
 
 $accion = $_GET['accion'] ?? null;
 
+
 switch ($accion) {
     // Gestión de Centros
     case 'centros':
@@ -68,15 +69,12 @@ switch ($accion) {
     case 'grupos':
         require __DIR__.'/controllers/Grupos/grupos.php';
         break;
-    /*case 'addProfesor':
-        require __DIR__.'/controllers/Profesores/addProfesor.php';
+    case 'addGrupo':
+        require __DIR__.'/controllers/Grupos/addGrupo.php';
         break;
-    case 'editProfesor':
-        require __DIR__.'/controllers/Profesores/editProfesor.php';
+    case 'delGrupo':
+        require __DIR__.'/controllers/Grupos/delGrupo.php';
         break;
-    case 'delProfesor':
-        require __DIR__.'/controllers/Profesores/delProfesor.php';
-        break;*/
 
     // Gestión de departamentos
     case 'departamentos':

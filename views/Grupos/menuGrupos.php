@@ -1,7 +1,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Llistat de grups</h1>
 
-  <a href="#" class="btn btn-success btn-icon-split" style="float: right" id="addEstudio">
+  <a href="#" class="btn btn-success btn-icon-split" style="float: right" id="addGrupo">
     <span class="icon text-white-50">
       <i class="fa fa-plus" aria-hidden="true"></i>
     </span>
@@ -17,7 +17,6 @@
   </div>
 
   <div class="card-body">
-    <!--form action="index.php?accion=XXXXXXXXXXXXXXXXXXXXXXXX" method="post"-->
       <div class="row">
         <div class="col">
           <h5>Centre</h5>
@@ -61,9 +60,8 @@
         <div class="col" id="lista_grupos">
         </div>
       </div>
-
-
-      <!--input type="submit" class="btn btn-primary" style="margin-top: 10px; align=right" onclick="editarProfesor()" id="editProfesor"></input-->
-    <!--/form-->
   </div>
 </div>
+
+<!-- Funciones personalizadas -->
+<script>mostrarAddGrupo()</script>

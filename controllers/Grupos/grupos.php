@@ -1,7 +1,7 @@
 <?php
 include "models/conexionBD.php";
 
-include 'listaDependiente/config.php';
+include 'models/Grupos/listaDependiente/config.php';
 include_once "models/Grupos/inicializarGrupos.php";
 include "models/Grupos/consultarGruposAsignatura.php";
 include "views/Grupos/menuGrupos.php";

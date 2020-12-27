@@ -380,7 +380,7 @@ function mostrarAsignarCargo (id_cargo) {
 function obtenerEstudios(valor){
   $.ajax ({
     type: "POST",
-    url: "listaDependiente/get_estudio.php",
+    url: "models/Grupos/listaDependiente/get_estudio.php",
     data:'id_centro='+valor,
     success: function(data) {
        $("#lista_estudios").html(data);
@@ -391,7 +391,7 @@ function obtenerEstudios(valor){
 function obtenerAsignaturas(valor){
   $.ajax({
    type: "POST",
-   url: "listaDependiente/get_asignatura.php",
+   url: "models/Grupos/listaDependiente/get_asignatura.php",
    data:'id_estudio='+valor,
    success: function(data){
       $("#lista_asignaturas").html(data);
@@ -402,12 +402,40 @@ function obtenerAsignaturas(valor){
 function obtenerGrupos(valor){
   $.ajax({
    type: "POST",
-   url: "listaDependiente/get_grupos.php",
+   url: "models/Grupos/listaDependiente/get_grupos.php",
    data:'id_asignatura='+valor,
    success: function(data){
       $("#lista_grupos").html(data);
    }
   });
+}
+
+function mostrarAddGrupo() {
+    $(document).ready(function(){
+        $('#addGrupo').click(function(){
+            $('#container-fluid').load('index.php?accion=addGrupo', function () {
+                console.log('Carga satisfactoria de añadir grupo.');
+            });
+        });
+    });
+}
+
+function eliminarGrupo (id_asignatura, id_grupo, anio) {
+    $(document).ready(function(){
+        $.ajax({
+            url: 'index.php?accion=delGrupo',
+            data: {
+                idAsignatura: id_asignatura,
+                idGrupo: id_grupo,
+                curso: anio,
+            },
+            type: 'post',
+            success: function(output) {
+                $('#container-fluid').html(output);
+            }
+        });
+        console.log('Grupo borrado correctamente.');
+    });
 }
 // FIN GRUPOS
 
