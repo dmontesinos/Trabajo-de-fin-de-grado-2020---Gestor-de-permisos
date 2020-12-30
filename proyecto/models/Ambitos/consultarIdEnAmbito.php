@@ -5,7 +5,7 @@ function consultarIdEnAmbito($conexion, $idTupla, $idAmbito) {
     /*
     Comprobación del nombre de la PK en función del ámbito.
     */
-    $consultaNombreIdTabla = $conexion->prepare('SELECT * FROM Ambitos WHERE idAmbitos = :ambito');
+    $consultaNombreIdTabla = $conexion->prepare('SELECT * FROM ambitos WHERE idAmbitos = :ambito');
     $parametros = [
       'ambito' => $idAmbito,
     ];
@@ -24,7 +24,7 @@ function consultarIdEnAmbito($conexion, $idTupla, $idAmbito) {
     echo "NOMBRE AMBITO: ".$nombreAmbito."</br>";
     echo "Nombre PK Tabla: ".$nombrePKTabla."</br>";*/
 
-    $consulta = $conexion->prepare("SELECT * FROM ".$nombreAmbito." WHERE ".$nombrePKTabla." = ".$idTupla);
+    $consulta = $conexion->prepare("SELECT * FROM ".strtolower($nombreAmbito)." WHERE ".$nombrePKTabla." = ".$idTupla);
     $parametros = [
       'idTupla' => $idTupla,
       'ambito' => $nombreAmbito,

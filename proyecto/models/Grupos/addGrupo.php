@@ -2,7 +2,7 @@
 function addGrupo($conexion, $grupo, $curso, $asignatura, $ocupacion) {
   try{
     // Comprobamos si existe el grupo en la base de datos
-    $consultaGrupo = $conexion->prepare('SELECT * FROM Grupo WHERE idGrupo = :grupo AND Anio_inicio = :curso');
+    $consultaGrupo = $conexion->prepare('SELECT * FROM grupo WHERE idGrupo = :grupo AND Anio_inicio = :curso');
     $parametros = [
       'grupo' => $grupo,
       'curso' => $curso,
@@ -13,7 +13,7 @@ function addGrupo($conexion, $grupo, $curso, $asignatura, $ocupacion) {
 
     // Si no existe, lo añadimos
     if(empty($consultaGrupo)){
-      $consultaGrupo = $conexion->prepare('INSERT INTO Grupo(idGrupo, Anio_inicio) VALUES (:grupo, :curso)');
+      $consultaGrupo = $conexion->prepare('INSERT INTO grupo(idGrupo, Anio_inicio) VALUES (:grupo, :curso)');
       $parametros = [
         'grupo' => $grupo,
         'curso' => $curso,
@@ -23,7 +23,7 @@ function addGrupo($conexion, $grupo, $curso, $asignatura, $ocupacion) {
 
 
     // Añadimos la entrada asignatura-grupo-ocupacion
-    $consulta = $conexion->prepare('INSERT INTO Grupo_has_Asignaturas(Grupo_idGrupo, Asignaturas_idAsignaturas, ocupacion) VALUES (:grupo, :asignatura, :ocupacion)');
+    $consulta = $conexion->prepare('INSERT INTO grupo_has_asignaturas(Grupo_idGrupo, Asignaturas_idAsignaturas, ocupacion) VALUES (:grupo, :asignatura, :ocupacion)');
 
     $parametros = [
       'grupo' => $grupo,

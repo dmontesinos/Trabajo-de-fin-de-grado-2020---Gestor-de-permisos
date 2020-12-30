@@ -46,6 +46,8 @@ if(isset($_POST['idEstudio']) && (!empty($_POST['idEstudio']))){
   }
 
 } else {
+  require_once "models/Centros/consultarCentros.php";
+  $centros = consultarCentros(conexionBD());
   require_once "views/Estudios/addEstudio.php";
 }
 

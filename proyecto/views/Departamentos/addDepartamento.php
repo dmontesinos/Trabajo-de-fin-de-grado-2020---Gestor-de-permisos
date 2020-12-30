@@ -7,12 +7,15 @@
     <form action="index.php?accion=addDepartamento" method="post">
       <div class="row">
         <div class="col">
+          <h5>ID</h5>
           <input id="idDepartamentos" type="text" class="form-control" placeholder="ID" name="idDepartamentos">
         </div>
         <div class="col">
+          <h5>Nom</h5>
           <input id="nombreDepartamento" type="text" class="form-control" placeholder="Nom" name="nombreDepartamento">
         </div>
         <div class="col">
+          <h5>Acrònim</h5>
           <input id="acroDepartamento" type="text" class="form-control" placeholder="Acrònim" name="acroDepartamento">
         </div>
       </div>

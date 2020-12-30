@@ -7,9 +7,11 @@
     <form action="index.php?accion=addObjeto" method="post">
       <div class="row">
         <div class="col">
+          <h5>Nom</h5>
           <input id="nombreObjeto" type="text" class="form-control" placeholder="Nom" name="nombreObjeto">
         </div>
         <div class="col">
+          <h5>Descripció</h5>
           <input id="descripcionObjeto" type="text" class="form-control" placeholder="Descripció" name="descripcionObjeto">
         </div>
       </div>

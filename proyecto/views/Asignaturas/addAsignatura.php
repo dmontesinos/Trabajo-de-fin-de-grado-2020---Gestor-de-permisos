@@ -7,9 +7,11 @@
     <form action="index.php?accion=addAsignatura" method="post">
       <div class="row">
         <div class="col">
+          <h5>ID</h5>
           <input id="idAsignatura" type="text" class="form-control" placeholder="ID" name="idAsignatura">
         </div>
         <div class="col">
+          <h5>Nom</h5>
           <input id="nombreAsignatura" type="text" class="form-control" placeholder="Nom" name="nombreAsignatura">
         </div>
       </div>

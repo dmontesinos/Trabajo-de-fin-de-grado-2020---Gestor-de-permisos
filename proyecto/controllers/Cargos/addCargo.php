@@ -41,7 +41,7 @@ if(isset($_POST['descripcion']) && (!empty($_POST['descripcion']))){
   }
 
 } else {
-  require_once "models\Ambitos\consultarAmbitos.php";
+  require_once "models/Ambitos/consultarAmbitos.php";
   $ambitos = consultarAmbitos(conexionBD());
   require_once "views/Cargos/addCargo.php";
 }

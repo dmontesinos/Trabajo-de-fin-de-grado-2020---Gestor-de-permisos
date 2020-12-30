@@ -18,6 +18,7 @@
               <th>Nom</th>
               <th>Àmbit</th><!--Ambitos_idAmbitos-->
               <th>Element</th><!-- idEnAmbito -->
+              <th>Assignacions</th>
               <th style="width:10%">Opcions</th>
 
             </tr>
@@ -25,34 +26,18 @@
       	<tbody>
       		<?php foreach ($lista as $cargo): ?>
 	            <tr>
-  		          <td><?php echo $cargo['idCargos'];?></td>
-  		          <td><?php echo $cargo['descripcion'];?></td>
+  		          <td style="vertical-align: middle"><?php echo $cargo['idCargos'];?></td>
+  		          <td style="vertical-align: middle"><?php echo $cargo['descripcion'];?></td>
 
-                <td>
+                <td style="vertical-align: middle">
                   <?php
                   $nombreAmbito = consultarAmbito(conexionBD(), $cargo['Ambitos_idAmbitos']);
                   echo $nombreAmbito[0]['nombre'];
-                  //echo $cargo['Ambitos_idAmbitos'];
                   ?>
-
-                  <!--Crear una query para sacar el objeto concreto del ambito mostrado anteriormente. Para ello poner como variable
-                  el "ambito" en el FROM de la query. Despues, en el where, establecer el "idEnAmbito". De esta forma mostraremos
-                  el objeto concreto del ambito concreto.-->
-
-                  <!--
-                  Para mostrar profesores y grupos necesitamos la variable "nombre" dentro del ámbito concreto y estas dos tablas no lo tienen.
-                  Se debe buscar alternativa a eso.
-                  -->
-
                 </td>
 
-                <td>
-
-                  <!--
-                  ¿Utilizar DESCRIBE en SQL para identificar el nombre de la id de la tabla?
-                  -->
+                <td style="vertical-align: middle">
                   <?php
-                  //echo $cargo['idEnAmbito'];
                   if($nombreAmbito[0]['nombre'] == "Profesores"){
                     $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
                     echo ($elemento[0]['apellido'].", ".$elemento[0]['nombre']);
@@ -63,12 +48,23 @@
                     $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
                     echo $elemento[0]['nombre'];
                   }
-
                   ?>
                 </td>
-
-                <td>
-                  <div class="dropdown mb-0" style="text-align: center;">
+                
+                <?php
+                echo "<td style='vertical-align: middle'>";
+                $profesores = consultarProfesoresCargo(conexionBD(), $cargo['idCargos']);
+                
+                foreach($profesores as $profesor){ 
+                  //echo "<p>".$profesor['apellido'].", ".$profesor['nombre']."</p>";
+                  $profNombre = consultarProfesor(conexionBD(), $profesor['Profesores_niu'])[0];
+                  echo "<p>".$profNombre['apellido'].", ".$profNombre['nombre']."</p>";
+                } 
+                echo "</td>";
+                ?>
+            
+                <td style="vertical-align: middle">
+                  <div class="dropdown mb-0" style="text-align: center; vertical-align: middle">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-info-circle"></i>
                       <span class="text">Detalls</span>

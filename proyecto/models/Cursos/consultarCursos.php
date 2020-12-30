@@ -1,7 +1,7 @@
 <?php
 function consultarCursos($conexion) {
   try{
-    $consulta = $conexion->prepare('SELECT * FROM Anio');
+    $consulta = $conexion->prepare('SELECT * FROM anio');
     
     $consulta->execute();
     $consulta = $consulta->fetchAll(PDO::FETCH_ASSOC);

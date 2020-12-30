@@ -44,8 +44,8 @@ if(isset($_POST['grupo']) && !empty($_POST['grupo']) && isset($_POST['curso']) &
   }
 
 } else {
-  require_once "models\Asignaturas\consultarAsignaturas.php";
-  require_once "models\Cursos\consultarCursos.php";
+  require_once "models/Asignaturas/consultarAsignaturas.php";
+  require_once "models/Cursos/consultarCursos.php";
   $cursos = consultarCursos(conexionBD());
   $asignaturas = consultarAsignaturas(conexionBD());
   require_once "views/Grupos/addGrupo.php";

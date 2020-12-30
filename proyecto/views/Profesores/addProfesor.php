@@ -7,12 +7,15 @@
     <form action="index.php?accion=addProfesor" method="post">
       <div class="row">
         <div class="col">
+          <h5>NIU</h5>
           <input id="niu" type="text" class="form-control" placeholder="NIU" name="niu">
         </div>
         <div class="col">
+          <h5>Nom</h5>
           <input id="nombreProfesor" type="text" class="form-control" placeholder="Nom" name="nombreProfesor">
         </div>
         <div class="col">
+          <h5>Cognoms</h5>
           <input id="apellidosProfesor" type="text" class="form-control" placeholder="Cognoms" name="apellidosProfesor">
         </div>
       </div>
