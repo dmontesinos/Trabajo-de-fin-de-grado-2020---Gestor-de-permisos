@@ -39,7 +39,7 @@
       <!-- Main Content -->
       <div id="content">
         <?php
-        include "views/topbar.html";
+        include "views/topbar.php";
         ?>
 
         <!-- Begin Page Content -->

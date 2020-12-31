@@ -54,29 +54,8 @@
         <h6 class="dropdown-header">
           Centre d'alertes
         </h6>
-        <!--
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="mr-3">
-            <div class="icon-circle bg-primary">
-              <i class="fas fa-file-alt text-white"></i>
-            </div>
-          </div>
-          <div>
-            <div class="small text-gray-500">December 12, 2019</div>
-            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="mr-3">
-            <div class="icon-circle bg-success">
-              <i class="fas fa-donate text-white"></i>
-            </div>
-          </div>
-          <div>
-            <div class="small text-gray-500">December 7, 2019</div>
-            $290.29 has been deposited into your account!
-          </div>
-        </a>
+
+        <!-- Centro de alertas (Mensajes) -->
         <a class="dropdown-item d-flex align-items-center" href="#">
           <div class="mr-3">
             <div class="icon-circle bg-warning">
@@ -84,11 +63,11 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">December 2, 2019</div>
-            Spending Alert: We've noticed unusually high spending for your account.
+            <div class="small text-gray-500">Febrer 12, 2021</div>
+            Nou Token: S'ha generat un nou Token per a la API.
           </div>
         </a>
-        -->
+        
         <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar totes les alertes</a>
       </div>
     </li>
@@ -105,48 +84,18 @@
         <h6 class="dropdown-header">
           Centre de missatges
         </h6>
-        <!--
+          
         <a class="dropdown-item d-flex align-items-center" href="#">
           <div class="dropdown-list-image mr-3">
             <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
             <div class="status-indicator bg-success"></div>
           </div>
           <div class="font-weight-bold">
-            <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-            <div class="small text-gray-500">Emily Fowler · 58m</div>
+            <div class="text-truncate">Salutacions. Solicito un nou Token per l'aplicació. Què he de fer?</div>
+            <div class="small text-gray-500">Jose Antonio Cegarra · 58m</div>
           </div>
         </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-            <div class="status-indicator"></div>
-          </div>
-          <div>
-            <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-            <div class="small text-gray-500">Jae Chun · 1d</div>
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-            <div class="status-indicator bg-warning"></div>
-          </div>
-          <div>
-            <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-          </div>
-        </a>
-        <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-            <div class="status-indicator bg-success"></div>
-          </div>
-          <div>
-            <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-            <div class="small text-gray-500">Chicken the Dog · 2w</div>
-          </div>
-        </a>
-      -->
+        
         <a class="dropdown-item text-center small text-gray-500" href="#">Llegir més missatges</a>
       </div>
     </li>
@@ -156,7 +105,10 @@
     <!-- Elemento navegador - Informació d'usuari -->
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Daniel Montesinos</span>
+        <?php
+        $usuario = consultarProfesor(conexionBD(), $_SESSION['niu']);
+        ?>
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $usuario[0]['apellido'].", ".$usuario[0]['nombre']; ?></span>
         <img class="img-profile rounded-circle" src="img/userDefault.png">
       </a>
       <!-- Dropdown - Informació d'usuari -->
