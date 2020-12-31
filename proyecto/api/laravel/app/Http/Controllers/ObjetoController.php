@@ -17,6 +17,18 @@ class ObjetoController extends Controller
             );
 
             if($id){
+                DB::table('permisos')->insert([
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 1],
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 2],
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 3],
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 4],
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 5],
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 6],
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 7],
+                    ['nivel' => 'ninguno', 'Objeto_idObjeto' => $id, 'Ambitos_idAmbitos' => 8],
+                ]);
+
+
                 return ["resultat" => "Objecte afegit a la base de dades correctament.", "id"=>$id];
             } else {
                 return ["resultat" => "L'objecte no s'ha pogut afegir a la base de dades."];
