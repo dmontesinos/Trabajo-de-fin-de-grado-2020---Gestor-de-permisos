@@ -174,6 +174,11 @@
 			case 'importacion':
 				require __DIR__.'/controllers/Importacion/importacion.php';
 				break;
+			
+			// Cerrar sesión
+			case 'logout':
+				phpCAS::logout();
+				break;
 
 			default:
 				require __DIR__ .'/controllers/portada.php';

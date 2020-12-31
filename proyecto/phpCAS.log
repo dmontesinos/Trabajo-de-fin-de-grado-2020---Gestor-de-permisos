@@ -26,3 +26,15 @@
 8C9B .|    |    |    -
 8C9B .|    |    -
 8C9B .|    -
+F04A .START phpCAS-1.3.3 ****************** [CAS.php:438]
+F04A .=> phpCAS::client('2.0', 'sact.uab.cat', 443, '') [logout.php:12]
+F04A .|    => CAS_Client::__construct('2.0', false, 'sact.uab.cat', 443, '', true) [CAS.php:338]
+F04A .|    |    Starting a new session fmmgi1t8qn5ss6m65brrte3fdl [Client.php:906]
+F04A .|    <= ''
+F04A .<= ''
+F04A .=> phpCAS::logout() [logout.php:13]
+F04A .|    => CAS_Client::logout(array ()) [CAS.php:1359]
+F04A .|    |    Prepare redirect to : https://sact.uab.cat/logout [Client.php:1653]
+F04A .|    |    exit()
+F04A .|    |    -
+F04A .|    -
