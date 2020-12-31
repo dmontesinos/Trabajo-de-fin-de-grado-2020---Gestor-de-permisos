@@ -106,10 +106,10 @@
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <?php
-        //$usuario = consultarProfesor(conexionBD(), $_SESSION['niu']);
+        $usuario = consultarProfesor(conexionBD(), $_SESSION['niu']);
         ?>
-        <!--span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $usuario[0]['apellido'].", ".$usuario[0]['nombre']; ?></span-->
-        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Daniel Montesinos Santos</span>
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $usuario[0]['apellido'].", ".$usuario[0]['nombre']; ?></span>
+        <!--span class="mr-2 d-none d-lg-inline text-gray-600 small">Daniel Montesinos Santos</span-->
         <img class="img-profile rounded-circle" src="img/userDefault.png">
       </a>
       <!-- Dropdown - Informació d'usuari -->
