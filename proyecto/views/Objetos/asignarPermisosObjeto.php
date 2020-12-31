@@ -1,6 +1,6 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Seleccionar els permissos: <?php echo $objeto[0]['nombre']; ?></h1>
+    <h1 class="h3 mb-0 text-gray-800">Seleccionar els permisos: <?php echo $objeto[0]['nombre']; ?></h1>
   </div>
 
   <div class="card-body">
@@ -30,20 +30,18 @@
                 }
               }
             ?>
-            <?php if($ambito['asignable'] == 1){ ?>
-              <tr>
-                <td><?php echo $ambito['nom'];?></td>
-                <td style="text-align:center">
-                  <input type="radio" id="ninguno" name="<?php echo $ambito['nombre']?>" value="ninguno" <?php if($checked == 1) echo "checked";?>>
-                </td>
-                <td style="text-align:center">
-                  <input type="radio" id="basico" name="<?php echo $ambito['nombre']?>" value="basico" <?php if($checked == 2) echo "checked";?>>
-                </td>
-  		          <td style="text-align:center">
-                  <input type="radio" id="total" name="<?php echo $ambito['nombre']?>" value="total" <?php if($checked == 3) echo "checked";?>>
-                </td>
-              </tr>
-            <?php } ?>
+            <tr>
+              <td><?php echo $ambito['nom'];?></td>
+              <td style="text-align:center">
+                <input type="radio" id="ninguno" name="<?php echo $ambito['nombre']?>" value="ninguno" <?php if($checked == 1) echo "checked";?>>
+              </td>
+              <td style="text-align:center">
+                <input type="radio" id="basico" name="<?php echo $ambito['nombre']?>" value="basico" <?php if($checked == 2) echo "checked";?>>
+              </td>
+              <td style="text-align:center">
+                <input type="radio" id="total" name="<?php echo $ambito['nombre']?>" value="total" <?php if($checked == 3) echo "checked";?>>
+              </td>
+            </tr>
           <?php endforeach; ?>
         </tbody>
       </table>

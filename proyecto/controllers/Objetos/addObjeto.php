@@ -24,9 +24,7 @@ if(isset($_POST['nombreObjeto']) && (!empty($_POST['nombreObjeto']))){
 
 
   foreach ($ambitos as $ambito) {
-    if($ambito['asignable']){
-      asignarPermisosObjeto(conexionBD(), "ninguno", $objeto[0]['idObjeto'], $ambito['idAmbitos']);
-    }
+    asignarPermisosObjeto(conexionBD(), "ninguno", $objeto[0]['idObjeto'], $ambito['idAmbitos']);
   }
 
 
