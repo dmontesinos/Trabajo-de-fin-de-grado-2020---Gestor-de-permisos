@@ -2,7 +2,7 @@
 function consultarPermisosObjeto($conexion, $idObjeto) {
   try{
 
-    $consulta = $conexion->prepare('SELECT * FROM Permisos WHERE Objeto_idObjeto = :idObjeto');
+    $consulta = $conexion->prepare('SELECT * FROM permisos WHERE Objeto_idObjeto = :idObjeto');
     $parametros = [
       'idObjeto' => $idObjeto,
     ];

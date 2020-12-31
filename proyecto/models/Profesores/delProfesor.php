@@ -2,21 +2,21 @@
 function borrarProfesor($conexion, $id) {
   try{
     //Borramos asignaciones a cargos
-    $consultaCargos = $conexion->prepare('DELETE FROM Cargos_has_Profesores WHERE Profesores_niu = :id');
+    $consultaCargos = $conexion->prepare('DELETE FROM cargos_has_profesores WHERE Profesores_niu = :id');
     $parametros = [
       'id' => $id,
     ];
     $consultaCargos->execute($parametros);
 
     //Borramos asignaciones a grupos
-    $consultaGrupos = $conexion->prepare('DELETE FROM Profesores_has_Grupo WHERE Profesores_niu = :id');
+    $consultaGrupos = $conexion->prepare('DELETE FROM profesores_has_grupo WHERE Profesores_niu = :id');
     $parametros = [
       'id' => $id,
     ];
     $consultaGrupos->execute($parametros);
 
     //Borramos asignaciones a departamentos
-    $consultaDepartamentos = $conexion->prepare('DELETE FROM Departamentos_has_Profesores WHERE Profesores_niu = :id');
+    $consultaDepartamentos = $conexion->prepare('DELETE FROM departamentos_has_profesores WHERE Profesores_niu = :id');
     $parametros = [
       'id' => $id,
     ];

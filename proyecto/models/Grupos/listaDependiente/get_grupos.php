@@ -5,10 +5,10 @@ if(!empty($_POST["id_asignatura"]))
 {
 
   $sql = 'SELECT *
-    FROM Grupo AS g
-    INNER JOIN Grupo_has_Asignaturas AS ga
+    FROM grupo AS g
+    INNER JOIN grupo_has_asignaturas AS ga
     ON g.idGrupo = ga.Grupo_idGrupo
-    INNER JOIN Asignaturas AS a
+    INNER JOIN asignaturas AS a
     ON a.idAsignaturas = ga.Asignaturas_idAsignaturas
     WHERE a.idAsignaturas = '.$_POST["id_asignatura"];
 

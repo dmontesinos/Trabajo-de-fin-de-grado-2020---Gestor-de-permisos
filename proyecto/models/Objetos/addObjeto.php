@@ -1,7 +1,7 @@
 <?php
 function addObjeto($conexion, $nombre, $descripcion) {
   try{
-    $consulta = $conexion->prepare('INSERT INTO Objeto(nombre, descripcion) VALUES (:nombre, :descripcion)');
+    $consulta = $conexion->prepare('INSERT INTO objeto(nombre, descripcion) VALUES (:nombre, :descripcion)');
 
     $parametros = [
       //'id' => $id,

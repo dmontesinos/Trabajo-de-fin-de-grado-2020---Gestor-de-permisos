@@ -1,7 +1,7 @@
 <?php
 function asignarPermisosObjeto($conexion, $nivel, $idObjeto, $idAmbito) {
   try{
-    $consulta = $conexion->prepare('INSERT INTO Permisos(nivel, Objeto_idObjeto, Ambitos_idAmbitos) VALUES (:nivel, :idObjeto, :idAmbito)');
+    $consulta = $conexion->prepare('INSERT INTO permisos(nivel, Objeto_idObjeto, Ambitos_idAmbitos) VALUES (:nivel, :idObjeto, :idAmbito)');
 
     $parametros = [
       'nivel' => $nivel,

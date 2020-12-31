@@ -2,7 +2,7 @@
 function consultarPermisosObjetoPorAmbito($conexion, $idObjeto, $idAmbito) {
   try{
 
-    $consulta = $conexion->prepare('SELECT * FROM Permisos 
+    $consulta = $conexion->prepare('SELECT * FROM permisos 
                                     WHERE Objeto_idObjeto = :idObjeto 
                                     AND Ambitos_idAmbitos = :idAmbito');
     $parametros = [

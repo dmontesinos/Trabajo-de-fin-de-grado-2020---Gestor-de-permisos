@@ -4,12 +4,12 @@ include 'config.php';
 
 if(!empty($_POST["id_estudio"]))
 {
-   $sql ="SELECT a.idAsignaturas, a.nombre FROM Asignaturas as a
-   INNER JOIN Asignaturas_has_Estudios as ae
+   $sql ="SELECT a.idAsignaturas, a.nombre FROM asignaturas as a
+   INNER JOIN asignaturas_has_estudios as ae
    ON ae.Asignaturas_idAsignaturas = a.idAsignaturas
-   INNER JOIN Estudios as e
+   INNER JOIN estudios as e
    ON e.idEstudio = ae.Estudios_idEstudios
-   INNER JOIN Centros as c
+   INNER JOIN centros as c
    ON c.idCentro = ae.Estudio_Centros_idCentros
    WHERE e.idEstudio = '" . $_POST["id_estudio"] . "'";
 

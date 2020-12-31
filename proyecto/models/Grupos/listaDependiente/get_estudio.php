@@ -4,7 +4,7 @@ include 'config.php';
 
 if(!empty($_POST["id_centro"]))
 {
-   $sql ="SELECT idEstudio, nombre FROM Estudios WHERE Centros_idCentros = '" . $_POST["id_centro"] . "'";
+   $sql ="SELECT idEstudio, nombre FROM estudios WHERE Centros_idCentros = '" . $_POST["id_centro"] . "'";
 
  	 $consulta_estudios = $link->query($sql);
 

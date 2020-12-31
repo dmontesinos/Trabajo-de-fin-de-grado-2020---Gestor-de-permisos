@@ -4,9 +4,9 @@ function consultarGruposAsignatura($conexion, $idAsignatura) {
 
     $consulta = $conexion->prepare('SELECT *
       FROM Grupo AS g
-      INNER JOIN Grupo_has_Asignaturas AS ga
+      INNER JOIN grupo_has_asignaturas AS ga
       ON g.idGrupo = ga.Grupo_idGrupo
-      INNER JOIN Asignaturas AS a
+      INNER JOIN asignaturas AS a
       ON a.idAsignaturas = ga.Asignaturas_idAsignaturas
       WHERE a.idAsignaturas = :idAsignatura');
     $parametros = [

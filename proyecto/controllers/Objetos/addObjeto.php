@@ -2,7 +2,7 @@
 require_once "models/conexionBD.php";
 require_once "models/Objetos/addObjeto.php";
 require_once "models/Objetos/asignarPermisosObjeto.php";
-require_once "models\Ambitos\consultarAmbitos.php";
+require_once "models/Ambitos/consultarAmbitos.php";
 require_once "models/Objetos/consultarObjetoPorNombre.php";
 
 

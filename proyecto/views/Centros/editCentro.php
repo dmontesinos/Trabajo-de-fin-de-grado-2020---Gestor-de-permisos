@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col">
             <h5>ID</h5>
-            <input id="idCentro" type="text" class="form-control" placeholder="ID" name="idCentro" value="<?php echo $centro['idCentro'];?>" disabled>
+            <input id="idCentro" type="text" class="form-control" placeholder="ID" name="idCentro" value="<?php echo $centro['idCentro'];?>">
           </div>
           <div class="col">
             <h5>Nom</h5>
