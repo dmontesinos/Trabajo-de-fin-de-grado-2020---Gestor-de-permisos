@@ -19,7 +19,7 @@
           <input id="acroEstudio" type="text" class="form-control" placeholder="Acrònim" name="acroEstudio">
         </div>
         <div class="col">
-          <h5>ID Centre</h5>
+          <h5>Centre</h5>
           <select class="custom-select" name="idCentro" id="idCentro">
             <option value="" selected>Selecciona una opció</option>
             <?php foreach($centros as $centro){ ?>

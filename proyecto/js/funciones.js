@@ -373,7 +373,6 @@ function mostrarAsignarCargo (id_cargo) {
         });
     });
 }
-
 // FIN CARGOS
 
 // GRUPOS
