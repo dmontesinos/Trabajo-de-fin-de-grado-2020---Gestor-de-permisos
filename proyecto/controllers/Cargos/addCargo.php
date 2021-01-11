@@ -1,6 +1,7 @@
 <?php
 require_once "models/conexionBD.php";
 require_once "models/Cargos/addCargo.php";
+include 'models/Grupos/listaDependiente/config.php';
 
 
 if(isset($_POST['descripcion']) && (!empty($_POST['descripcion']))){

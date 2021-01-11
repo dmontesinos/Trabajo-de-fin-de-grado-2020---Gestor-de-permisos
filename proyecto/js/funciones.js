@@ -373,6 +373,18 @@ function mostrarAsignarCargo (id_cargo) {
         });
     });
 }
+
+function obtenerElementos(valor){
+    $.ajax ({
+      type: "POST",
+      url: "models/Grupos/listaDependiente/get_elementos.php",
+      data:'id_ambito='+valor,
+      success: function(data) {
+         $("#idEnAmbito").html(data);
+      }
+    });
+  }
+
 // FIN CARGOS
 
 // GRUPOS

@@ -24,7 +24,8 @@
             </tr>
       	</thead>
       	<tbody>
-      		<?php foreach ($lista as $cargo): ?>
+      		<?php
+            foreach ($lista as $cargo): ?>
 	            <tr>
   		          <td style="vertical-align: middle"><?php echo $cargo['idCargos'];?></td>
   		          <td style="vertical-align: middle"><?php echo $cargo['descripcion'];?></td>
@@ -38,15 +39,17 @@
 
                 <td style="vertical-align: middle">
                   <?php
-                  if($nombreAmbito[0]['nombre'] == "Profesores"){
-                    $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
-                    echo ($elemento[0]['apellido'].", ".$elemento[0]['nombre']);
-                  } elseif ($nombreAmbito[0]['nombre'] == "Grupo") {
-                    $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
-                    echo $elemento[0]['idGrupo'];
-                  } else {
+                  if($nombreAmbito[0]['nombre'] == "Estudios"){
                     $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
                     echo $elemento[0]['nombre'];
+                  } elseif ($nombreAmbito[0]['nombre'] == "Departamentos") {
+                    $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
+                    echo $elemento[0]['nombre'];
+                  } elseif ($nombreAmbito[0]['nombre'] == "Centros"){
+                    $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
+                    echo $elemento[0]['nombre'];
+                  } elseif ($nombreAmbito[0]['nombre'] == "Universidad"){
+                    echo "Universitat Autònoma de Barcelona";
                   }
                   ?>
                 </td>
@@ -82,7 +85,7 @@
                   </div>
                 </td>
 	            </tr>
-			<?php endforeach; ?>
+            <?php endforeach; ?>
   		</tbody>
 	</table>
 </div>

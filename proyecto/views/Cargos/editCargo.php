@@ -17,18 +17,20 @@
             <input id="descripcion" type="text" class="form-control" placeholder="Descripció" name="descripcion" value="<?php echo $cargo['descripcion'];?>">
           </div>
           <div class="col">
-            <h5>idEnAmbito</h5>
+            <h5>ID element</h5>
             <input id="idEnAmbito" type="text" class="form-control" placeholder="idEnAmbito" name="idEnAmbito" value="<?php echo $cargo['idEnAmbito'];?>">
           </div>
           <div class="col">
-            <h5>Ambitos_idAmbitos</h5>
+            <h5>Àmbits</h5>
             <select class="custom-select" name="Ambitos_idAmbitos" id="Ambitos_idAmbitos">
 
               <?php foreach ($ambitos as $ambito): ?>
-                <?php if($ambito['idAmbitos'] == $cargo['Ambitos_idAmbitos']){ ?>
-                  <option value="<?php echo $ambito['idAmbitos']; ?>" selected><?php echo $ambito['nombre']; ?></option>
-                <?php } else {?>
-                  <option value="<?php echo $ambito['idAmbitos']; ?>"><?php echo $ambito['nombre']; ?></option>
+                <?php if($ambito['asignable'] == 1) { ?>
+                  <?php if($ambito['idAmbitos'] == $cargo['Ambitos_idAmbitos']){ ?>
+                    <option value="<?php echo $ambito['idAmbitos']; ?>" selected><?php echo $ambito['nombre']; ?></option>
+                  <?php } else {?>
+                    <option value="<?php echo $ambito['idAmbitos']; ?>"><?php echo $ambito['nombre']; ?></option>
+                  <?php } ?>
                 <?php }
                 endforeach; ?>
             </select>

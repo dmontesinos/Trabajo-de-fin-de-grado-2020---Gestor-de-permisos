@@ -1,4 +1,3 @@
-Laravel trabaja con un potente ORM llamado Eloquent para realizar las consultas.
 - Crear usuario para utilización de tokens -> \api\laravel\database\seeders\UsersTableSeeder.php
 
 
