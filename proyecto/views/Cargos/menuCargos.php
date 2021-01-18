@@ -33,7 +33,7 @@
                 <td style="vertical-align: middle">
                   <?php
                   $nombreAmbito = consultarAmbito(conexionBD(), $cargo['Ambitos_idAmbitos']);
-                  echo $nombreAmbito[0]['nombre'];
+                  echo $nombreAmbito[0]['nom'];
                   ?>
                 </td>
 

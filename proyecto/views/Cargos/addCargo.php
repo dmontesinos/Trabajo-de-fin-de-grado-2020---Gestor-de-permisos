@@ -16,7 +16,7 @@
           <option value=''>Selecciona un àmbit</option>
             <?php foreach ($ambitos as $ambito): ?>
               <?php if($ambito['asignable'] == 1) { ?>
-                <option value="<?php echo $ambito['idAmbitos']; ?>"><?php echo $ambito['nombre']; ?></option>
+                <option value="<?php echo $ambito['idAmbitos']; ?>"><?php echo $ambito['nom']; ?></option>
               <?php } ?>
             <?php endforeach; ?>
           </select>
