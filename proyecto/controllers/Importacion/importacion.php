@@ -117,7 +117,6 @@ if (isset($_POST["import"])) {
             $consultaExiste = $consultaExiste->fetchAll(PDO::FETCH_ASSOC);
 
             // Gestión nombre profesor
-            // PROBLEMAS CON PROFESORES COMO DOLORES ISABEL REXACHS DEL ROSARIO (el "del" del apellido no lo gestiono)
             $profesor = explode(", ", $spreadSheetAry[$i][28]);
 
             //$apellidos = explode(" ", $profesor[0]);
@@ -273,6 +272,39 @@ if (isset($_POST["import"])) {
             }
           }
           // FIN vincular profesor con grupo
+
+          // Vincular profesor con asignatura
+          if($spreadSheetAry[$i][27] != ""){
+            $consultaExiste = $conexion->prepare('
+              SELECT *
+              FROM profesores_has_asignaturas AS pa
+              WHERE pa.profesores_niu = :niu 
+              AND pa.asignaturas_idAsignaturas = :idAsignaturas
+              AND pa.anio_inicio = :anio');
+
+
+              $parametrosExiste = [
+                'niu' => $spreadSheetAry[$i][27],
+                'idAsignaturas' => $spreadSheetAry[$i][0],
+                'anio' => $anioAcademico[0],
+              ];
+
+            $consultaExiste->execute($parametrosExiste);
+            $consultaExiste = $consultaExiste->fetchAll(PDO::FETCH_ASSOC);
+
+
+            if(empty($consultaExiste)){
+              $consulta = $conexion->prepare('INSERT INTO profesores_has_asignaturas
+                                                VALUES (:niu, :idAsignaturas, :anio)');
+              $parametros = [
+                'niu' => $spreadSheetAry[$i][27],
+                'idAsignaturas' => $spreadSheetAry[$i][0],
+                'anio' => $anioAcademico[0],
+              ];
+              $consulta->execute($parametros);
+            }
+          }
+          // FIN vincular profesor con asignatura
         }
 
         unset($_POST);

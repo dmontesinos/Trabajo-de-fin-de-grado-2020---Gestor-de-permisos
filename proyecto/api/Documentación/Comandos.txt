@@ -1,14 +1,16 @@
 - Crear usuario para utilización de tokens -> \api\laravel\database\seeders\UsersTableSeeder.php
-
+Comando consola -> php artisan db:seed --class=UsersTableSeeder 
 
 - GET
 # Búsqueda de un profesor concreto -> /api/professors/{niu}
+# Búsqueda de asignaturas, grupos y ocupación por NIU -> /api/professors/assignatures/{niu}
 # Búsqueda de departamentos de un profesor concreto -> /api/professors/departaments/{niu}
 # Búsqueda de cargos de un profesor concreto -> /api/professors/carrecs/{niu}
 # Búsqueda de objetos por ID -> /api/objectes/cercar/id/{id}
 # Búsqueda de objetos por nombre -> /api/objectes/cercar/nom/{String} (%20% para espacios)
 # Búsqueda de objetos por descripción -> /api/objectes/cercar/descripcio/{String} (%20% para espacios)
 # Retorno de permisos en función del ID del objeto -> /api/objectes/permisos/{id}
+
 
 - POST
 # Añadir nuevo objeto a la DB -> /api/objectes/afegir

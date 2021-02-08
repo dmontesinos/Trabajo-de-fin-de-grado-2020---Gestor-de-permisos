@@ -27,8 +27,8 @@
       		<?php
             foreach ($lista as $cargo): ?>
 	            <tr>
-  		          <td style="vertical-align: middle"><?php echo $cargo['idCargos'];?></td>
-  		          <td style="vertical-align: middle"><?php echo $cargo['descripcion'];?></td>
+  		          <td style="vertical-align: middle"><?php echo htmlspecialchars($cargo['idCargos']);?></td>
+  		          <td style="vertical-align: middle"><?php echo htmlspecialchars($cargo['descripcion']);?></td>
 
                 <td style="vertical-align: middle">
                   <?php
@@ -41,13 +41,13 @@
                   <?php
                   if($nombreAmbito[0]['nombre'] == "Estudios"){
                     $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
-                    echo $elemento[0]['nombre'];
+                    echo htmlspecialchars($elemento[0]['nombre']);
                   } elseif ($nombreAmbito[0]['nombre'] == "Departamentos") {
                     $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
-                    echo $elemento[0]['nombre'];
+                    echo htmlspecialchars($elemento[0]['nombre']);
                   } elseif ($nombreAmbito[0]['nombre'] == "Centros"){
                     $elemento = consultarIdEnAmbito(conexionBD(), $cargo['idEnAmbito'], $cargo['Ambitos_idAmbitos']);
-                    echo $elemento[0]['nombre'];
+                    echo htmlspecialchars($elemento[0]['nombre']);
                   } elseif ($nombreAmbito[0]['nombre'] == "Universidad"){
                     echo "Universitat Autònoma de Barcelona";
                   }

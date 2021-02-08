@@ -14,7 +14,7 @@ class ProfesoresController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //Devuelve los datos de un profesor concreto según el NIU
+    //Devuelve el nombre de un profesor según el NIU
     public function profesor($niu){
         $profesor = DB::table('Profesores as p')
         ->where('p.niu', '=', $niu)
@@ -54,7 +54,36 @@ class ProfesoresController extends Controller
         return $departamentos;
     }
 
+    //Devuelve las asignaturas, ocupación y grupos por curso de un NIU
+    public function asignaturas($niu){
+        $info = DB::table('profesores as p')
+        ->join('profesores_has_asignaturas as pha', 'pha.profesores_niu', '=', 'p.niu')
+        ->join('asignaturas as a', 'a.idAsignaturas', '=', 'pha.asignaturas_idAsignaturas')
+        ->join('grupo_has_asignaturas as gha', 'gha.Asignaturas_idAsignaturas', '=', 'a.idAsignaturas')
+        //->join('profesores_has_grupo as phg', 'phg.Profesores_niu', '=', 'p.niu')
+
+        ->join('profesores_has_grupo as phg', function($join){
+            $join->on([
+                ['phg.Profesores_niu', '=', 'p.niu'],
+                ['phg.Grupo_idGrupo', '=', 'gha.Grupo_idGrupo']
+            ]);
+        })
+
+        ->join('anio as an', 'an.inicio', '=', 'pha.anio_inicio')
+        ->where('p.niu', '=', $niu)
+        ->select('p.nombre as Nom', 'p.apellido as Cognoms','an.inicio as Curs', 'a.nombre as Assignatura', 'gha.Grupo_idGrupo as Grup', 'gha.ocupacion as Ocupació')
+        ->get();
+        return $info;
+    }
     
+    /*
+     * SELECT p.nombre as Nom, p.apellido as Cognom, a.nombre as Assignatura, gha.Grupo_idGrupo as Grup
+FROM profesores as p 
+INNER JOIN profesores_has_grupo as phg ON phg.Profesores_niu = p.niu AND phg.Grupo_idGrupo = gha.Grupo_idGrupo
+WHERE p.niu = 1001048
+     * 
+     */
+
 
     /**
      * Show the form for creating a new resource.

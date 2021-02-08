@@ -24,8 +24,8 @@
       	<tbody>
       		<?php foreach ($lista as $asignatura): ?>
 	            <tr>
-  		          <td><?php echo $asignatura['idAsignaturas'];?></td>
-  		          <td><?php echo $asignatura['nombre'];?></td>
+  		          <td><?php echo htmlspecialchars($asignatura['idAsignaturas']);?></td>
+  		          <td><?php echo htmlspecialchars($asignatura['nombre']);?></td>
                 <td >
                   <div class="dropdown mb-0" style="text-align: center;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

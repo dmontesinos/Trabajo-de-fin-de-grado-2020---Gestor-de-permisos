@@ -23,9 +23,9 @@
       	<tbody>
       		<?php foreach ($lista as $objeto): ?>
 	            <tr>
-  		          <td><?php echo $objeto['idObjeto'];?></td>
-  		          <td><?php echo $objeto['nombre'];?></td>
-  		          <td><?php echo $objeto['descripcion'];?></td>
+  		          <td><?php echo htmlspecialchars($objeto['idObjeto']);?></td>
+  		          <td><?php echo htmlspecialchars($objeto['nombre']);?></td>
+  		          <td><?php echo htmlspecialchars($objeto['descripcion']);?></td>
 
                 <td>
                   <div class="dropdown mb-0" style="text-align: center;">

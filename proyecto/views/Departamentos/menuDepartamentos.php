@@ -26,9 +26,9 @@
       	<tbody>
       		<?php foreach ($lista as $departamento): ?>
 	            <tr>
-  		          <td><?php echo $departamento['idDepartamentos'];?></td>
-  		          <td><?php echo $departamento['nombre'];?></td>
-                <td><?php echo $departamento['acronimo'];?></td>
+  		          <td><?php echo htmlspecialchars($departamento['idDepartamentos']);?></td>
+  		          <td><?php echo htmlspecialchars($departamento['nombre']);?></td>
+                <td><?php echo htmlspecialchars($departamento['acronimo']);?></td>
                 <td >
                   <div class="dropdown mb-0" style="text-align: center;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

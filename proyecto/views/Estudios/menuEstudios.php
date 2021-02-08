@@ -26,10 +26,10 @@
       	<tbody>
       		<?php foreach ($lista as $estudio): ?>
 	            <tr>
-  		          <td><?php echo $estudio['idEstudio'];?></td>
-  		          <td><?php echo $estudio['nombre'];?></td>
-  		          <td><?php echo $estudio['acronimo'];?></td>
-                <td><?php echo $estudio['Centros_idCentros'];?></td>
+  		          <td><?php echo htmlspecialchars($estudio['idEstudio']);?></td>
+  		          <td><?php echo htmlspecialchars($estudio['nombre']);?></td>
+  		          <td><?php echo htmlspecialchars($estudio['acronimo']);?></td>
+                <td><?php echo htmlspecialchars($estudio['Centros_idCentros']);?></td>
                 <td>
                   <?php
                   if($estudio['activo']){

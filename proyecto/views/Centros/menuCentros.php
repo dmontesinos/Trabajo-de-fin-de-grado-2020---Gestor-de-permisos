@@ -24,9 +24,9 @@
       	<tbody>
       		<?php foreach ($lista as $centro): ?>
 	            <tr>
-  		          <td><?php echo $centro['idCentro'];?></td>
-  		          <td><?php echo $centro['nombre'];?></td>
-  		          <td><?php echo $centro['acronimo'];?></td>
+  		          <td><?php echo htmlspecialchars($centro['idCentro']);?></td>
+  		          <td><?php echo htmlspecialchars($centro['nombre']);?></td>
+  		          <td><?php echo htmlspecialchars($centro['acronimo']);?></td>
                 <td>
                   <div class="dropdown mb-0" style="text-align: center;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
