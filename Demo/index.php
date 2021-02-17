@@ -145,6 +145,12 @@ curl_close($ch);
 								<i class="glyphicon glyphicon-flag"></i>
 								Ayuda </a>
 							</li>
+							<li>
+								<a href="index2.php?niu=<?php echo $_GET['niu']?>">
+									<i class="glyphicon glyphicon-tasks"></i>
+									Objetos
+								</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -152,12 +158,19 @@ curl_close($ch);
 			<div class="col-md-9">
 			<div class="profile-content">
 				<?php
-				foreach($decodedAsignaturas as $elemento => $asignatura){
-					echo "Curso: ".$asignatura['Curs']."<br>";
-					echo "Asignatura: ".$asignatura['Assignatura']."<br>";
-					echo "Grupo: ".$asignatura['Grup']."<br>";
-					echo "Ocupación: ".$asignatura['Ocupació']."<br>";
+				if(empty($decodedAsignaturas)){
+					echo "<h4>No hay asignaturas registradas</h4>";
+				} else {
+					echo "<h2> Asignaturas </h2>";
 					echo "<hr class='solid'>";
+
+					foreach($decodedAsignaturas as $elemento => $asignatura){
+						echo "Curso: ".$asignatura['Curs']."<br>";
+						echo "Asignatura: ".$asignatura['Assignatura']."<br>";
+						echo "Grupo: ".$asignatura['Grup']."<br>";
+						echo "Ocupación: ".$asignatura['Ocupació']."<br>";
+						echo "<hr class='solid'>";
+					}
 				}
 				?>
 			</div>

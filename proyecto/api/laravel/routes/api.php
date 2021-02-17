@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('professors/carrecs/{niu}', [ProfesoresController::class, 'cargos']); //Retorna cargos de un profesor
     Route::get('professors/departaments/{niu}', [ProfesoresController::class, 'departamentos']); //Retorna departamentos de un profesor
     Route::get('professors/assignatures/{niu}', [ProfesoresController::class, 'asignaturas']); //Retorna las asignaturas y grupo por curso académico de un profesor
+    Route::get('professors/permisos/{niu}/{id}', [ProfesoresController::class, 'niuObjeto']);
 
     // Objetos
     Route::post('objectes/afegir/', [ObjetoController::class, 'addObjeto']); //Añade un objeto nuevo a la DB

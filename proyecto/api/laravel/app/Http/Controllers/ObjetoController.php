@@ -79,7 +79,7 @@ class ObjetoController extends Controller
     }
 
     //Devuelve los permisos de un objeto mediante su ID.
-    function permisosObjeto($id){
+    public static function permisosObjeto($id){
         if($id){
             $resultado = DB::table('Permisos as p')
             ->join("Ambitos as a", "p.Ambitos_idAmbitos", "=", "a.idAmbitos")

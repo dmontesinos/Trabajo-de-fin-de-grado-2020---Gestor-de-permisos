@@ -22,14 +22,10 @@ class ProfesoresController extends Controller
         ->get();
 
         return $profesor;
-
-
-
-        //return Profesores::find($niu)->where('profesor.niu', '=', $niu);
     }
 
     //Devuelve los cargos en función del NIU
-    public function cargos($niu) 
+    public static function cargos($niu) 
     {
         $cargos = DB::table('profesores as p')
         ->join('Cargos_has_Profesores as chp', 'chp.Profesores_niu', '=', 'p.niu')
@@ -55,7 +51,7 @@ class ProfesoresController extends Controller
     }
 
     //Devuelve las asignaturas, ocupación y grupos por curso de un NIU
-    public function asignaturas($niu){
+    public static function asignaturas($niu){
         $info = DB::table('profesores as p')
         ->join('profesores_has_asignaturas as pha', 'pha.profesores_niu', '=', 'p.niu')
         ->join('asignaturas as a', 'a.idAsignaturas', '=', 'pha.asignaturas_idAsignaturas')
@@ -71,19 +67,68 @@ class ProfesoresController extends Controller
 
         ->join('anio as an', 'an.inicio', '=', 'pha.anio_inicio')
         ->where('p.niu', '=', $niu)
-        ->select('p.nombre as Nom', 'p.apellido as Cognoms','an.inicio as Curs', 'a.nombre as Assignatura', 'gha.Grupo_idGrupo as Grup', 'gha.ocupacion as Ocupació')
+        //->select('p.nombre as Nom', 'p.apellido as Cognoms','an.inicio as Curs', 'a.nombre as Assignatura', 'gha.Grupo_idGrupo as Grup', 'gha.ocupacion as Ocupació')
+        ->select('an.inicio as Curs', 'a.nombre as Assignatura', 'gha.Grupo_idGrupo as Grup', 'gha.ocupacion as Ocupació')
         ->get();
+
+        
         return $info;
     }
-    
-    /*
-     * SELECT p.nombre as Nom, p.apellido as Cognom, a.nombre as Assignatura, gha.Grupo_idGrupo as Grup
-FROM profesores as p 
-INNER JOIN profesores_has_grupo as phg ON phg.Profesores_niu = p.niu AND phg.Grupo_idGrupo = gha.Grupo_idGrupo
-WHERE p.niu = 1001048
-     * 
-     */
 
+    //Devuelve los permisos de un objeto en función del NIU que pregunte.
+    public function niuObjeto($niu, $objeto){
+        $infoAsignaturas = ProfesoresController::asignaturas($niu);
+        $infoObjeto = ObjetoController::permisosObjeto($objeto);
+        $infoCargos = DB::table('profesores as p')
+        ->join('Cargos_has_Profesores as chp', 'chp.Profesores_niu', '=', 'p.niu')
+        ->join('Cargos as c', 'c.idCargos', '=', 'chp.Cargos_idCargos')
+        ->join('Ambitos as a', 'a.idAmbitos', '=', 'c.Ambitos_idAmbitos')
+        
+        ->where('p.niu', '=', $niu)
+
+        ->select('c.descripcion as NomCarrec', 'a.Nombre as Ambit')
+        ->get();
+
+        $asignatura = false;
+
+        $resultado = array();
+
+        if($infoAsignaturas != "[]"){
+            $asignatura = true;
+        }
+
+        $arrayJson = json_decode($infoCargos, true);
+        $listaCargos = array();
+        
+        if($infoCargos != "[]"){
+            foreach($arrayJson as $elemento => $contenido){
+                array_push($listaCargos, $contenido['Ambit']);
+            }
+        }
+        
+
+        $arrayJson = json_decode($infoObjeto, true);
+
+        foreach($arrayJson as $elemento => $contenido){
+            if($asignatura && $contenido['Permiso'] == "Profesores"){
+                array_push($resultado, $contenido);
+            }
+            
+            if($contenido['Permiso'] == "Estudiante"){
+                array_push($resultado, $contenido);
+            }
+
+            foreach($listaCargos as $elementoCargo){
+                if($contenido['Permiso'] == $elementoCargo){
+                    array_push($resultado, $contenido);
+                }
+            }
+        }
+
+        $resultado = json_encode($resultado);
+        return $resultado;
+    }
+    
 
     /**
      * Show the form for creating a new resource.

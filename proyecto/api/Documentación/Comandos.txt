@@ -10,6 +10,7 @@ Comando consola -> php artisan db:seed --class=UsersTableSeeder
 # Búsqueda de objetos por nombre -> /api/objectes/cercar/nom/{String} (%20% para espacios)
 # Búsqueda de objetos por descripción -> /api/objectes/cercar/descripcio/{String} (%20% para espacios)
 # Retorno de permisos en función del ID del objeto -> /api/objectes/permisos/{id}
+# Retorno de permisos de un objeto en función del NIU que pregunte -> /api/professors/permisos/{niu}/{id}
 
 
 - POST
